@@ -1,52 +1,52 @@
-import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import styles from "./ClientHome.module.scss";
-import { Avatar, Button, ScheduleCard } from "@shared/ui";
-import { useBook } from "@store/book.ts";
+import styles from './ClientHome.module.scss';
+import { Avatar, Button, ScheduleCard } from '@shared/ui';
+import { useBook } from '@store/book.ts';
 import {
   androidAppLink,
   getTypeCall,
   iosAppLink,
   upcomingSessionsReader,
-} from "@utils/helpers.ts";
-import { IScheduleCard } from "@models/book.ts";
+} from '@utils/helpers.ts';
+import { IScheduleCard } from '@models/book.ts';
 import {
   AppModal,
   useAppModalSimpleHandlers,
-} from "@shared/ui/AppModal/AppModal.tsx";
-import { ClientConnectModal, ClientStartBookingModal } from "@pages/index.ts";
-import toast from "react-hot-toast";
+} from '@shared/ui/AppModal/AppModal.tsx';
+import { ClientConnectModal, ClientStartBookingModal } from '@pages/index.ts';
+import toast from 'react-hot-toast';
 import {
   CHECKIN_PUBLIC_BASE_URL,
   EXERCISE_PUBLIC_BASE_URL,
   RoutesEnum,
   USER_PUBLIC_BASE_URL,
   VIEW_PUBLIC_BASE_URL,
-} from "@routes/Routes.types.ts";
-import Gold1 from "@assets/svg/gold1.svg";
-import Gold2 from "@assets/svg/gold2.svg";
-import Gold3 from "@assets/svg/gold3.svg";
-import Checkin1 from "@assets/svg/checkin1.svg";
-import Checkin2 from "@assets/svg/checkin2.svg";
-import Checkin3 from "@assets/svg/checkin3.svg";
-import Checkin4 from "@assets/svg/checkin4.svg";
-import Checkin5 from "@assets/svg/checkin5.svg";
-import Therapists from "@assets/images/therapists.png";
-import BlackStar from "@assets/svg/blackStar.svg";
-import { MoodSmilesData } from "@constants/constants.ts";
-import Care from "@pages/Care";
-import cn from "classnames";
-import { ExerciseCard } from "@features/index.ts";
-import { useExercises } from "@store/exercises.ts";
-import { useGlobalStore } from "@store/global.ts";
-import { useInvite } from "@store/invite.ts";
-import { useProfileStore } from "@store/profile.ts";
-import { USER_TYPES } from "@constants/user.ts";
-import Apple from "@assets/images/apple.png";
-import { StoreTypes } from "@constants/care.ts";
-import Google from "@assets/images/google.png";
-import { Helmet } from "react-helmet";
+} from '@routes/Routes.types.ts';
+import Gold1 from '@assets/svg/gold1.svg';
+import Gold2 from '@assets/svg/gold2.svg';
+import Gold3 from '@assets/svg/gold3.svg';
+import Checkin1 from '@assets/svg/checkin1.svg';
+import Checkin2 from '@assets/svg/checkin2.svg';
+import Checkin3 from '@assets/svg/checkin3.svg';
+import Checkin4 from '@assets/svg/checkin4.svg';
+import Checkin5 from '@assets/svg/checkin5.svg';
+import Therapists from '@assets/images/therapists.png';
+import BlackStar from '@assets/svg/blackStar.svg';
+import { MoodSmilesData } from '@constants/constants.ts';
+import Care from '@pages/Care';
+import cn from 'classnames';
+import { ExerciseCard } from '@features/index.ts';
+import { useExercises } from '@store/exercises.ts';
+import { useGlobalStore } from '@store/global.ts';
+import { useInvite } from '@store/invite.ts';
+import { useProfileStore } from '@store/profile.ts';
+import { USER_TYPES } from '@constants/user.ts';
+import Apple from '@assets/images/apple.png';
+import { StoreTypes } from '@constants/care.ts';
+import Google from '@assets/images/google.png';
+import { Helmet } from 'react-helmet';
 // import {useFeeling} from "@store/feeling.ts";
 
 const checkinImages = [Checkin1, Checkin2, Checkin3, Checkin4, Checkin5];
@@ -57,13 +57,13 @@ const ClientHome = () => {
   const navigate = useNavigate();
   const modalHandlers = useAppModalSimpleHandlers();
   const refs = useRef<any[]>([]);
-  const user = JSON.parse(localStorage.getItem("user") ?? "{}");
+  const user = JSON.parse(localStorage.getItem('user') ?? '{}');
   const [selected, setSelected] = useState(false);
   const [isExerciseData, setIsExerciseData] = useState(false);
   const [selectedBookings, setSelectedBookings] = useState<boolean>(false);
   const [threeModalsShow, setThreeModalsShow] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState(
-    window.innerWidth <= 768
+    window.innerWidth <= 768,
   );
   const favoriteExercise = useExercises((state) => state.favoriteExercise);
   const unFavoriteExercise = useExercises((state) => state.unFavoriteExercise);
@@ -74,14 +74,14 @@ const ClientHome = () => {
   const bookingData = useBook((state) => state.bookingData);
   const getOffloadsCount = useGlobalStore((state) => state.getOffloadsCount);
   const getOffloadsCountStatus = useGlobalStore(
-    (state) => state.getOffloadsCountStatus
+    (state) => state.getOffloadsCountStatus,
   );
   const offloadsCount = useGlobalStore((state) => state.offloadsCount);
   const [scrollState, setScrollState] = useState<any>(null);
   // const [upcomingTherapist, setUpcomingTherapist] = useState<any>(null);
   const getJoinedExercises = useExercises((state) => state.getJoinedExercises);
   const getJoinedExercisesStatus = useExercises(
-    (state) => state.getJoinedExercisesStatus
+    (state) => state.getJoinedExercisesStatus,
   );
   const joinedExercises = useExercises((state) => state.joinedExercises);
   const connectClient = useInvite((state) => state.connectClient);
@@ -89,7 +89,7 @@ const ClientHome = () => {
   const profile = useProfileStore((state) => state.profile);
   const [connectShow, setConnectShow] = useState<boolean>(false);
   const [connectStep, setConnectStep] = useState<number>(1);
-  const [code, setCode] = useState<string>("");
+  const [code, setCode] = useState<string>('');
   const [isWrongeCode, setIsWrongeCode] = useState<boolean>(false);
   // const userFeeling = useFeeling((state) => state.userFeeling);
   // const createExerciseAnswer = useExercises(state => state.createExerciseAnswer)
@@ -128,7 +128,7 @@ const ClientHome = () => {
           const result = await connectClient({ code });
           if (result.status) {
             setConnectStep((prev) => prev + 1);
-            localStorage.setItem("invitedTherapistEmail", result.result);
+            localStorage.setItem('invitedTherapistEmail', result.result);
             getProfile();
           }
         }
@@ -139,7 +139,7 @@ const ClientHome = () => {
           setConnectStep(1);
           setConnectShow(false);
           modalHandlers.close();
-          navigate("/client/client-messages");
+          navigate('/client/client-messages');
         }
       } catch (err: any) {
         setIsWrongeCode(true);
@@ -150,14 +150,14 @@ const ClientHome = () => {
   const onSeeBookings = () => {
     setSelected(true);
     setSelectedBookings(true);
-    localStorage.setItem("scrollPosition", scrollPosition.toString());
+    localStorage.setItem('scrollPosition', scrollPosition.toString());
     navigate(`${location.pathname}#selected_bookings`);
   };
 
   const onBackHandler = () => {
     setSelected(false);
     setSelectedBookings(false);
-    window.location.hash = "";
+    window.location.hash = '';
   };
 
   const handleLeftArrowClick = (index: number) => {
@@ -182,14 +182,14 @@ const ClientHome = () => {
         wrapper.scrollLeft + wrapper.clientWidth === wrapper.scrollWidth;
       setScrollState((prevState: any) =>
         prevState?.map((state: any, idx: number) =>
-          idx === index ? { isAtStart, isAtEnd } : state
-        )
+          idx === index ? { isAtStart, isAtEnd } : state,
+        ),
       );
     }
   };
 
   const onAction = (type: string, card: any) => {
-    if (type === "add") {
+    if (type === 'add') {
       modalHandlers.show(card);
     }
   };
@@ -203,7 +203,7 @@ const ClientHome = () => {
       }
       setIsChanged(!isChanged);
     } catch (error) {
-      console.log("error", error);
+      console.log('error', error);
     }
   };
 
@@ -215,9 +215,9 @@ const ClientHome = () => {
   };
 
   const onClickCarePlanSee = (therapist: any) => {
-    localStorage.setItem("fromCarePlan", JSON.stringify(therapist));
+    localStorage.setItem('fromCarePlan', JSON.stringify(therapist));
     setTimeout(() => {
-      navigate("/client/client-messages");
+      navigate('/client/client-messages');
     }, 0);
   };
 
@@ -233,7 +233,7 @@ const ClientHome = () => {
 
   useEffect(() => {
     if (
-      !location.hash.includes("selected_bookings") &&
+      !location.hash.includes('selected_bookings') &&
       selectedBookings &&
       selected
     ) {
@@ -241,7 +241,7 @@ const ClientHome = () => {
       setSelected(false);
     }
     if (
-      !location.hash.includes("selected_category") &&
+      !location.hash.includes('selected_category') &&
       selected &&
       !selectedBookings
     ) {
@@ -251,11 +251,11 @@ const ClientHome = () => {
 
   useEffect(() => {
     if (state?.startCallError) {
-      toast.error("You can start five minutes before the start time");
+      toast.error('You can start five minutes before the start time');
       navigate(pathname, { replace: true });
     }
     if (state?.startCallExpireError) {
-      toast.error("The booking time has expired.");
+      toast.error('The booking time has expired.');
       navigate(pathname, { replace: true });
     }
   }, [state]);
@@ -273,7 +273,7 @@ const ClientHome = () => {
       joinedExercises?.map((item: any) => ({
         isAtStart: true,
         isAtEnd: item?.exercises?.length < 5,
-      }))
+      })),
     );
   }, [joinedExercises]);
 
@@ -288,51 +288,51 @@ const ClientHome = () => {
     const handleResize = () => {
       setIsMobileScreen(window.innerWidth <= 768);
     };
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   useEffect(() => {
     const scrollPositionFromCare = localStorage.getItem(
-      "scrollPositionFromCare"
+      'scrollPositionFromCare',
     );
     if (!scrollPositionFromCare) return;
 
     if (user?.uuid) {
       if (
-        getBookingsStatus === "SUCCESS" &&
-        getJoinedExercisesStatus === "SUCCESS" &&
-        getOffloadsCountStatus === "SUCCESS"
+        getBookingsStatus === 'SUCCESS' &&
+        getJoinedExercisesStatus === 'SUCCESS' &&
+        getOffloadsCountStatus === 'SUCCESS'
       ) {
         setTimeout(() => {
           window.scrollTo({
             top: Number(scrollPositionFromCare),
-            behavior: "smooth",
+            behavior: 'smooth',
           });
-          localStorage.removeItem("scrollPositionFromCare");
+          localStorage.removeItem('scrollPositionFromCare');
         }, 500);
       }
-    } else if (getOffloadsCountStatus === "SUCCESS") {
+    } else if (getOffloadsCountStatus === 'SUCCESS') {
       setTimeout(() => {
         window.scrollTo({
           top: Number(scrollPositionFromCare),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
-        localStorage.removeItem("scrollPositionFromCare");
+        localStorage.removeItem('scrollPositionFromCare');
       }, 500);
     }
   }, [getBookingsStatus, getOffloadsCountStatus, getJoinedExercisesStatus]);
 
   useEffect(() => {
-    const scrollPosition = localStorage.getItem("scrollPosition");
+    const scrollPosition = localStorage.getItem('scrollPosition');
     if (selectedBookings) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      window.scrollTo({ top: Number(scrollPosition), behavior: "smooth" });
+      window.scrollTo({ top: Number(scrollPosition), behavior: 'smooth' });
     }
   }, [selected, selectedBookings]);
 
@@ -359,8 +359,8 @@ const ClientHome = () => {
               <img className={styles.gold3} src={Gold3} alt="g1" />
               <span className={styles.titlePage}>
                 {user?.type === USER_TYPES.CLIENT
-                  ? "Get it off your chest"
-                  : "Client companion app"}
+                  ? 'Get it off your chest'
+                  : 'Client companion app'}
               </span>
               <div className={styles.moodBlock}>
                 <span className={styles.feelingText}>How are you feeling?</span>
@@ -381,7 +381,7 @@ const ClientHome = () => {
               </div>
               <div className={styles.offloadsCountWrapper}>
                 <span className={styles.countText}>
-                  {offloadsCount} offloads{" "}
+                  {offloadsCount} offloads{' '}
                   <span className={styles.lightCountText}>
                     from other people
                   </span>
@@ -401,7 +401,7 @@ const ClientHome = () => {
                     <div
                       className={cn(
                         styles.cardsWrapper,
-                        styles.cardsWrapperMobile
+                        styles.cardsWrapperMobile,
                       )}
                     >
                       {visibleSessions?.map((item: IScheduleCard) => {
@@ -444,13 +444,13 @@ const ClientHome = () => {
                                 end_time={endTime}
                                 start_time={startTime}
                                 session_type={
-                                  type === 3 ? "consultation" : "session"
+                                  type === 3 ? 'consultation' : 'session'
                                 }
                                 type={getTypeCall(
                                   isInPerson,
                                   isLiveText,
                                   isVideoCall,
-                                  isVoiceCall
+                                  isVoiceCall,
                                 )}
                               />
                             </div>
@@ -489,7 +489,7 @@ const ClientHome = () => {
                     {user?.uuid && (
                       <div className={styles.therapistsActionWrapper}>
                         <Button
-                          label={"Connect your therapist"}
+                          label={'Connect your therapist'}
                           className={styles.connectButton}
                           onClick={onConnectClick}
                         />
@@ -537,7 +537,7 @@ const ClientHome = () => {
                   <div className={styles.carePlanTop}>
                     <div className={styles.planInfos}>
                       <span className={styles.heartIconWrapper}>
-                        <i className={cn("icon-heart-art")} />
+                        <i className={cn('icon-heart-art')} />
                       </span>
                       <div className={styles.textsWrapper}>
                         <span className={styles.bold}>Your care plan</span>
@@ -556,7 +556,7 @@ const ClientHome = () => {
                             })}
                             onClick={() => handleLeftArrowClick(index)}
                           >
-                            <i className={cn("icon-left-arrow")} />
+                            <i className={cn('icon-left-arrow')} />
                           </div>
                           <div
                             className={cn(styles.iconWrapper2, {
@@ -564,7 +564,7 @@ const ClientHome = () => {
                             })}
                             onClick={() => handleRightArrowClick(index)}
                           >
-                            <i className={cn("icon-right-arrow")} />
+                            <i className={cn('icon-right-arrow')} />
                           </div>
                         </div>
                       )}
@@ -590,7 +590,7 @@ const ClientHome = () => {
                           onActionClick={onAction}
                           onFavoriteClick={onFavorite}
                           onCardClick={onCardClick}
-                          size={isMobileScreen ? "small" : "large"}
+                          size={isMobileScreen ? 'small' : 'large'}
                           isFavoritable={false}
                         />
                       ))}
@@ -604,7 +604,7 @@ const ClientHome = () => {
         {!selectedBookings && (
           <div className={styles.careBlockWrapper}>
             <Care
-              page={"client-home"}
+              page={'client-home'}
               widthTitle={false}
               widthLine={false}
               setIsExerciseData={setIsExerciseData}
@@ -615,7 +615,7 @@ const ClientHome = () => {
         {selectedBookings && (
           <div className={styles.wrapper}>
             <div className={styles.iconWrapper} onClick={onBackHandler}>
-              <i className={cn("icon-left-arrow")} style={{ fontSize: 16 }} />
+              <i className={cn('icon-left-arrow')} style={{ fontSize: 16 }} />
             </div>
             <span className={styles.title}>Sessions</span>
             <div className={styles.line}></div>
@@ -661,12 +661,12 @@ const ClientHome = () => {
                           name={therapist?.name}
                           end_time={endTime}
                           start_time={startTime}
-                          session_type={type === 3 ? "consultation" : "session"}
+                          session_type={type === 3 ? 'consultation' : 'session'}
                           type={getTypeCall(
                             isInPerson,
                             isLiveText,
                             isVideoCall,
-                            isVoiceCall
+                            isVoiceCall,
                           )}
                         />
                       </div>
@@ -695,7 +695,7 @@ const ClientHome = () => {
         {connectShow && (
           <AppModal
             setStateAction={setConnectShow}
-            width={isMobileScreen ? "100%" : 375}
+            width={isMobileScreen ? '100%' : 375}
             {...modalHandlers}
             withBorder={!isMobileScreen}
             closeIcon={connectStep === 1}

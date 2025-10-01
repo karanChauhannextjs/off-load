@@ -11,11 +11,16 @@ import { LoadingScreen, StartBookingModal } from '@pages/index.ts';
 import { Chat } from '@widgets/index.ts';
 import CodeGenerationModal from '@pages/CodeGenerationModal';
 import { JonahDemoData } from '@constants/constants.ts';
-import { PLANS_AND_BILLINGS, RoutesEnum, USER_PUBLIC_BASE_URL } from '@routes/Routes.types.ts';
+import {
+  PLANS_AND_BILLINGS,
+  RoutesEnum,
+  USER_PUBLIC_BASE_URL,
+} from '@routes/Routes.types.ts';
 import { useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { PaidStatus } from '@constants/plans.ts';
 import { useProfileStore } from '@store/profile.ts';
+import { Helmet } from 'react-helmet';
 
 const SharedClients = () => {
   const navigate = useNavigate();
@@ -43,7 +48,7 @@ const SharedClients = () => {
   const currentUser = useProfileStore((state) => state.currentUser);
 
   const addClientHandler = (client?: any) => {
-    console.log('currentUser',currentUser);
+    console.log('currentUser', currentUser);
     if (user?.uuid) {
       localStorage.removeItem('fromAddClient');
       if (
@@ -55,7 +60,7 @@ const SharedClients = () => {
         modalHandlers.show(client);
       } else {
         navigate(`${PLANS_AND_BILLINGS}`);
-        localStorage.setItem('toSubscription', location.pathname)
+        localStorage.setItem('toSubscription', location.pathname);
       }
     } else {
       navigate(`${USER_PUBLIC_BASE_URL}/${RoutesEnum.THERAPIST_SIGN_UP}`);
@@ -93,48 +98,53 @@ const SharedClients = () => {
   };
 
   return (
-    <div
-      className={cn(styles.pageWrapper, {
-        [styles.pageWrapperWithUpgradeBanner]:
-          !user?.isSubscribed || user?.paidStatus !== PaidStatus.Paid,
-      })}
-    >
-      {getBookingsStatus === 'LOADING' ||
-      getConversationsStatus === 'LOADING' ? (
-        <LoadingScreen />
-      ) : (
-        <Chat
-          user={user}
-          page={'clients'}
-          bookingsData={bookingData}
-          conversations={
-            user?.uuid ? therapistClientsConversations : JonahDemoData
-          }
-          isMobileScreen={isMobileScreen}
-          onAddClick={addClientHandler}
-          onClickCard={onClickCard}
-        />
-      )}
-
-      {codeGenerationShow && (
-        <AppModal width={389} {...modalHandlers}>
-          <CodeGenerationModal
+    <>
+      <Helmet>
+        <title>Offload | Shared-Clients</title>
+      </Helmet>
+      <div
+        className={cn(styles.pageWrapper, {
+          [styles.pageWrapperWithUpgradeBanner]:
+            !user?.isSubscribed || user?.paidStatus !== PaidStatus.Paid,
+        })}
+      >
+        {getBookingsStatus === 'LOADING' ||
+        getConversationsStatus === 'LOADING' ? (
+          <LoadingScreen />
+        ) : (
+          <Chat
+            user={user}
             page={'clients'}
-            data={modalHandlers.metaData}
-            setCodeGenerationShow={setCodeGenerationShow}
+            bookingsData={bookingData}
+            conversations={
+              user?.uuid ? therapistClientsConversations : JonahDemoData
+            }
+            isMobileScreen={isMobileScreen}
+            onAddClick={addClientHandler}
+            onClickCard={onClickCard}
           />
-        </AppModal>
-      )}
+        )}
 
-      {threeModalsShow && (
-        <AppModal width={389} {...modalHandlers} disableClosingModal>
-          <StartBookingModal
-            setThreeModalsShow={setThreeModalsShow}
-            data={modalHandlers.metaData}
-          />
-        </AppModal>
-      )}
-    </div>
+        {codeGenerationShow && (
+          <AppModal width={389} {...modalHandlers}>
+            <CodeGenerationModal
+              page={'clients'}
+              data={modalHandlers.metaData}
+              setCodeGenerationShow={setCodeGenerationShow}
+            />
+          </AppModal>
+        )}
+
+        {threeModalsShow && (
+          <AppModal width={389} {...modalHandlers} disableClosingModal>
+            <StartBookingModal
+              setThreeModalsShow={setThreeModalsShow}
+              data={modalHandlers.metaData}
+            />
+          </AppModal>
+        )}
+      </div>
+    </>
   );
 };
 export default SharedClients;

@@ -12,6 +12,7 @@ import {
 } from '@shared/ui/AppModal/AppModal.tsx';
 import Smile from '@assets/images/thinking-face.svg';
 import { FeedbackModal } from '@pages/index.ts';
+import { Helmet } from 'react-helmet';
 
 const PublicLayout = () => {
   const location = useLocation();
@@ -74,43 +75,45 @@ const PublicLayout = () => {
     location.pathname.includes('care');
 
   return (
-    <div className={styles.container}>
-      <Header className={styles.header} />
-      <div className={styles.burgerIconWrapper} onClick={toggleBurgerMenu}>
-        <img src={Burger} alt="Burger" />
+    <>
+      <div className={styles.container}>
+        <Header className={styles.header} />
+        <div className={styles.burgerIconWrapper} onClick={toggleBurgerMenu}>
+          <img src={Burger} alt="Burger" />
+        </div>
+        <BurgerMenu
+          isVisible={isBurgerMenuOpen}
+          onClose={toggleBurgerMenu}
+          className={styles.burgerMenu}
+        />
+        <div className={styles.body}>
+          <div className={styles.sidebar}>
+            <SignoutSidebar />
+          </div>
+          <div className={cn(styles.main, { [styles.isInFeed]: isFeedPage })}>
+            <Outlet />
+            {isFeedbackVisibility && isMobileScreen && (
+              <div className={styles.feedbackWrapper} onClick={onFeedbackClick}>
+                <span>Give Feedback</span>
+                <img src={Smile} alt="smile" className={styles.smile} />
+              </div>
+            )}
+            {feedbackShow && (
+              <AppModal width={389} {...modalHandlers}>
+                <FeedbackModal setFeedbackShow={setFeedbackShow} />
+              </AppModal>
+            )}
+          </div>
+          <div
+            className={cn(styles.tabBar, {
+              [styles.tabBarHide]: selectedGroup || selectedCategory,
+            })}
+          >
+            <SignoutTabbar />
+          </div>
+        </div>
       </div>
-      <BurgerMenu
-        isVisible={isBurgerMenuOpen}
-        onClose={toggleBurgerMenu}
-        className={styles.burgerMenu}
-      />
-      <div className={styles.body}>
-        <div className={styles.sidebar}>
-          <SignoutSidebar />
-        </div>
-        <div className={cn(styles.main, { [styles.isInFeed]: isFeedPage })}>
-          <Outlet />
-          {isFeedbackVisibility && isMobileScreen && (
-            <div className={styles.feedbackWrapper} onClick={onFeedbackClick}>
-              <span>Give Feedback</span>
-              <img src={Smile} alt="smile" className={styles.smile} />
-            </div>
-          )}
-          {feedbackShow && (
-            <AppModal width={389} {...modalHandlers}>
-              <FeedbackModal setFeedbackShow={setFeedbackShow} />
-            </AppModal>
-          )}
-        </div>
-        <div
-          className={cn(styles.tabBar, {
-            [styles.tabBarHide]: selectedGroup || selectedCategory,
-          })}
-        >
-          <SignoutTabbar />
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 export default PublicLayout;

@@ -1,45 +1,45 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import styles from "./Care.module.scss";
+import styles from './Care.module.scss';
 import {
   AddClientModal,
   ExerciseCard,
   ExerciseShareModal,
-} from "@features/index.ts";
+} from '@features/index.ts';
 import {
   AppModal,
   useAppModalSimpleHandlers,
-} from "@shared/ui/AppModal/AppModal.tsx";
-import cn from "classnames";
-import { useLocation, useNavigate } from "react-router-dom";
+} from '@shared/ui/AppModal/AppModal.tsx';
+import cn from 'classnames';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   EXERCISE_PUBLIC_BASE_URL,
   RoutesEnum,
   USER_PUBLIC_BASE_URL,
-} from "@routes/Routes.types.ts";
-import { useExercises } from "@store/exercises.ts";
-import { CareProps } from "@pages/Care/Care.types.ts";
-import { USER_TYPES } from "@constants/user.ts";
-import Therapists from "@assets/images/therapists.png";
-import Apple from "@assets/images/apple.png";
-import Google from "@assets/images/google.png";
-import { Button } from "@shared/ui";
-import BlackStar from "@assets/svg/blackStar.svg";
+} from '@routes/Routes.types.ts';
+import { useExercises } from '@store/exercises.ts';
+import { CareProps } from '@pages/Care/Care.types.ts';
+import { USER_TYPES } from '@constants/user.ts';
+import Therapists from '@assets/images/therapists.png';
+import Apple from '@assets/images/apple.png';
+import Google from '@assets/images/google.png';
+import { Button } from '@shared/ui';
+import BlackStar from '@assets/svg/blackStar.svg';
 import {
   ClientConnectModal,
   FeedbackModal,
   LoadingScreen,
-} from "@pages/index.ts";
-import { useInvite } from "@store/invite.ts";
-import { useProfileStore } from "@store/profile.ts";
-import { useGlobalStore } from "@store/global.ts";
-import { useBook } from "@store/book.ts";
-import { CareMockDots, StoreTypes } from "@constants/care.ts";
-import { androidAppLink, currentBaseUrl, iosAppLink } from "@utils/helpers.ts";
-import { PaidStatus } from "@constants/plans.ts";
-import { GroupAll } from "@constants/constants.ts";
-import ThinkingFace from "@assets/images/thinking-face-back.svg";
-import { Helmet } from "react-helmet";
+} from '@pages/index.ts';
+import { useInvite } from '@store/invite.ts';
+import { useProfileStore } from '@store/profile.ts';
+import { useGlobalStore } from '@store/global.ts';
+import { useBook } from '@store/book.ts';
+import { CareMockDots, StoreTypes } from '@constants/care.ts';
+import { androidAppLink, currentBaseUrl, iosAppLink } from '@utils/helpers.ts';
+import { PaidStatus } from '@constants/plans.ts';
+import { GroupAll } from '@constants/constants.ts';
+import ThinkingFace from '@assets/images/thinking-face-back.svg';
+import { Helmet } from 'react-helmet';
 
 const Care: React.FC<CareProps> = (props) => {
   const {
@@ -52,9 +52,9 @@ const Care: React.FC<CareProps> = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const modalHandlers = useAppModalSimpleHandlers();
-  const user = JSON.parse(localStorage.getItem("user") ?? "{}");
+  const user = JSON.parse(localStorage.getItem('user') ?? '{}');
   const [isMobileScreen, setIsMobileScreen] = useState(
-    window.innerWidth <= 768
+    window.innerWidth <= 768,
   );
   const [addCardShow, setAddCardShow] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
@@ -67,11 +67,11 @@ const Care: React.FC<CareProps> = (props) => {
   });
   // const getExercises = useExercises((state) => state.getExercises);
   const getExercisesByCategory = useExercises(
-    (state) => state.getExercisesByCategory
+    (state) => state.getExercisesByCategory,
   );
   const exercises = useExercises((state) => state.exercises);
   const getFavoriteExercises = useExercises(
-    (state) => state.getFavoriteExercises
+    (state) => state.getFavoriteExercises,
   );
   const favoriteExercise = useExercises((state) => state.favoriteExercise);
   const unFavoriteExercise = useExercises((state) => state.unFavoriteExercise);
@@ -84,7 +84,7 @@ const Care: React.FC<CareProps> = (props) => {
   const [pageDataGroup, setPageDataGroup] = useState<any[] | null>([]);
   const [connectShow, setConnectShow] = useState<boolean>(false);
   const [connectStep, setConnectStep] = useState<number>(1);
-  const [code, setCode] = useState<string>("");
+  const [code, setCode] = useState<string>('');
   const [isWrongeCode, setIsWrongeCode] = useState<boolean>(false);
   const refs = useRef<any[]>([]);
   const refGroups = useRef<HTMLDivElement>(null);
@@ -94,15 +94,15 @@ const Care: React.FC<CareProps> = (props) => {
   const resetBookings = useBook((state) => state.reset);
   let cardWidth = isMobileScreen ? 154 : 187;
   let gruopWrapperWidth = 120;
-  const scrollPositionFromCare = localStorage.getItem("scrollPositionFromCare");
-  const savedScrollFromSee = localStorage.getItem("savedScrollFromSee");
-  const savedScrollForHome = localStorage.getItem("savedScrollForHome");
+  const scrollPositionFromCare = localStorage.getItem('scrollPositionFromCare');
+  const savedScrollFromSee = localStorage.getItem('savedScrollFromSee');
+  const savedScrollForHome = localStorage.getItem('savedScrollForHome');
   const getGroups = useExercises((state) => state.getGroups);
   const resetGroups = useExercises((state) => state.resetGroups);
   const groups = useExercises((state) => state.groups);
   const getGroupCategories = useExercises((state) => state.getGroupCategories);
   const getGroupCategoriesStatus = useExercises(
-    (state) => state.getGroupCategoriesStatus
+    (state) => state.getGroupCategoriesStatus,
   );
   const groupCategories = useExercises((state) => state.groupCategories);
   const [loadingFrom, setLoadingFrom] = useState(true);
@@ -110,7 +110,7 @@ const Care: React.FC<CareProps> = (props) => {
   const [feedbackShow, setFeedbackShow] = useState<boolean>(false);
 
   const onAction = (type: string, card: any) => {
-    if (type === "add") {
+    if (type === 'add') {
       if (user.type === USER_TYPES.THERAPIST) {
         setAddCardShow(true);
         modalHandlers.show(card);
@@ -123,7 +123,7 @@ const Care: React.FC<CareProps> = (props) => {
   const onFavorite = async (
     isFavorite: boolean,
     uuid: string,
-    exercise?: any
+    exercise?: any,
   ) => {
     if (user?.uuid) {
       try {
@@ -131,11 +131,11 @@ const Care: React.FC<CareProps> = (props) => {
         if (!isFavorite) {
           await favoriteExercise(uuid);
           let favIndex = updatedPageData.findIndex(
-            (row) => row.category?.name === "Favourites"
+            (row) => row.category?.name === 'Favourites',
           );
           if (favIndex === -1) {
             updatedPageData.splice(1, 0, {
-              category: { id: Date.now(), name: "Favourites" },
+              category: { id: Date.now(), name: 'Favourites' },
               exercises: [{ ...exercise, isFavorite: true }],
             });
           } else {
@@ -147,7 +147,7 @@ const Care: React.FC<CareProps> = (props) => {
         } else {
           await unFavoriteExercise(uuid);
           let favIndex = updatedPageData.findIndex(
-            (row) => row.category?.name === "Favourites"
+            (row) => row.category?.name === 'Favourites',
           );
           if (favIndex !== -1) {
             updatedPageData[favIndex].exercises = updatedPageData[
@@ -161,7 +161,7 @@ const Care: React.FC<CareProps> = (props) => {
         const finalPageData = updatedPageData.map((row) => ({
           ...row,
           exercises: row.exercises.map((el: any) =>
-            el.uuid === uuid ? { ...el, isFavorite: !isFavorite } : el
+            el.uuid === uuid ? { ...el, isFavorite: !isFavorite } : el,
           ),
         }));
         setPageData(finalPageData);
@@ -169,7 +169,7 @@ const Care: React.FC<CareProps> = (props) => {
         // resetExercises();
         // setIsChanged(!isChanged);
       } catch (error) {
-        console.log("error", error);
+        console.log('error', error);
       }
     } else {
       navigate(`${USER_PUBLIC_BASE_URL}/${RoutesEnum.CLIENT_SIGN_UP}`);
@@ -179,27 +179,27 @@ const Care: React.FC<CareProps> = (props) => {
   const onCardClick = (card: any) => {
     if (card?.isActive) {
       viewExercise(card.uuid);
-      localStorage.setItem("scrollPositionFromCare", scrollPosition.toString());
-      const prevScrollPosition = localStorage.getItem("scrollPosition");
+      localStorage.setItem('scrollPositionFromCare', scrollPosition.toString());
+      const prevScrollPosition = localStorage.getItem('scrollPosition');
       if (!scrollPositionFromCare) {
         if (prevScrollPosition) {
           localStorage.setItem(
-            "scrollPositionFromCare",
-            prevScrollPosition.toString()
+            'scrollPositionFromCare',
+            prevScrollPosition.toString(),
           );
         } else {
           localStorage.setItem(
-            "scrollPositionFromCare",
-            scrollPosition.toString()
+            'scrollPositionFromCare',
+            scrollPosition.toString(),
           );
         }
       }
       if (selectedCategory) {
-        localStorage.setItem("savedScrollFromSee", scrollPosition.toString());
+        localStorage.setItem('savedScrollFromSee', scrollPosition.toString());
         prevScrollPosition &&
           localStorage.setItem(
-            "savedScrollForHome",
-            prevScrollPosition.toString()
+            'savedScrollForHome',
+            prevScrollPosition.toString(),
           );
       }
       resetOffloadCounts();
@@ -215,19 +215,19 @@ const Care: React.FC<CareProps> = (props) => {
     if (setSelected) {
       setSelected(true);
     }
-    localStorage.setItem("selectedCategory", JSON.stringify(category));
-    localStorage.setItem("scrollPosition", scrollPosition.toString());
-    localStorage.removeItem("scrollPositionFromCare");
+    localStorage.setItem('selectedCategory', JSON.stringify(category));
+    localStorage.setItem('scrollPosition', scrollPosition.toString());
+    localStorage.removeItem('scrollPositionFromCare');
     navigate(`${location.pathname}#selected_category`);
   };
 
   const onBackHandler = () => {
     setSelectedCategory(null);
-    localStorage.removeItem("selectedCategory");
+    localStorage.removeItem('selectedCategory');
     if (selectedGroup) {
-      window.location.hash = "#selected_group";
+      window.location.hash = '#selected_group';
     } else {
-      window.location.hash = "";
+      window.location.hash = '';
     }
     if (setSelected) {
       setSelected(false);
@@ -237,8 +237,8 @@ const Care: React.FC<CareProps> = (props) => {
   const onGroupBackHandler = () => {
     setSelectedGroup(GroupAll);
     setPageDataGroup(null);
-    localStorage.removeItem("selectedGroup");
-    window.location.hash = "";
+    localStorage.removeItem('selectedGroup');
+    window.location.hash = '';
   };
 
   const onExerciseShare = async (exercise: any) => {
@@ -247,15 +247,15 @@ const Care: React.FC<CareProps> = (props) => {
       modalHandlers.show(exercise);
     } else {
       const shareData = {
-        title: "Check out this therapy tool",
-        text: "100s of science-backed therapy tools | Offload",
+        title: 'Check out this therapy tool',
+        text: '100s of science-backed therapy tools | Offload',
         url: `${currentBaseUrl}/exercise/${exercise?.uuid}`,
       };
       if (navigator.share) {
         try {
           await navigator.share(shareData);
         } catch (error: any) {
-          console.error("Error sharing:", error);
+          console.error('Error sharing:', error);
         }
       }
     }
@@ -283,8 +283,8 @@ const Care: React.FC<CareProps> = (props) => {
         wrapper.scrollLeft + wrapper.clientWidth === wrapper.scrollWidth;
       setScrollState((prevState: any) =>
         prevState?.map((state: any, idx: number) =>
-          idx === index ? { isAtStart, isAtEnd } : state
-        )
+          idx === index ? { isAtStart, isAtEnd } : state,
+        ),
       );
     }
   };
@@ -330,7 +330,7 @@ const Care: React.FC<CareProps> = (props) => {
           const result = await connectClient({ code });
           if (result.status) {
             setConnectStep((prev) => prev + 1);
-            localStorage.setItem("invitedTherapistEmail", result.result);
+            localStorage.setItem('invitedTherapistEmail', result.result);
             getProfile();
           }
         }
@@ -341,7 +341,7 @@ const Care: React.FC<CareProps> = (props) => {
           setConnectStep(1);
           setConnectShow(false);
           modalHandlers.close();
-          navigate("/client/client-messages");
+          navigate('/client/client-messages');
         }
       } catch (err: any) {
         setIsWrongeCode(true);
@@ -355,11 +355,11 @@ const Care: React.FC<CareProps> = (props) => {
     }
     setSelectedGroup(group);
     getGroupCategories(group.uuid, 1);
-    if (group?.uuid !== "all") {
-      localStorage.setItem("selectedGroup", JSON.stringify(group));
-      window.location.hash = "#selected_group";
+    if (group?.uuid !== 'all') {
+      localStorage.setItem('selectedGroup', JSON.stringify(group));
+      window.location.hash = '#selected_group';
     } else {
-      window.location.hash = "";
+      window.location.hash = '';
     }
   };
 
@@ -377,14 +377,14 @@ const Care: React.FC<CareProps> = (props) => {
     const wrapper = refGroups?.current;
     if (wrapper) {
       localStorage.setItem(
-        "groupsScrollPosition",
-        wrapper.scrollLeft.toString()
+        'groupsScrollPosition',
+        wrapper.scrollLeft.toString(),
       );
     }
   };
 
   const restoreGroupsScrollPosition = () => {
-    const savedScrollPosition = localStorage.getItem("groupsScrollPosition");
+    const savedScrollPosition = localStorage.getItem('groupsScrollPosition');
     if (savedScrollPosition && refGroups?.current) {
       refGroups.current.scrollLeft = parseInt(savedScrollPosition, 10);
     }
@@ -396,7 +396,7 @@ const Care: React.FC<CareProps> = (props) => {
   };
 
   useEffect(() => {
-    if (page === "client-home") {
+    if (page === 'client-home') {
       getExercisesByCategory(2, 1);
     } else {
       getExercisesByCategory(1, 1);
@@ -417,38 +417,38 @@ const Care: React.FC<CareProps> = (props) => {
     const handleResize = () => {
       setIsMobileScreen(window.innerWidth <= 768);
     };
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   useEffect(() => {
-    const scrollPosition = localStorage.getItem("scrollPosition");
+    const scrollPosition = localStorage.getItem('scrollPosition');
     setTimeout(() => {
       if (selectedCategory && !savedScrollFromSee) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (selectedCategory && savedScrollFromSee) {
         window.scrollTo({
           top: Number(savedScrollFromSee),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
-        localStorage.removeItem("savedScrollFromSee");
+        localStorage.removeItem('savedScrollFromSee');
       } else if (!selectedCategory && scrollPositionFromCare) {
         window.scrollTo({
           top: Number(scrollPositionFromCare),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       } else if (!selectedCategory && savedScrollForHome && !scrollPosition) {
         window.scrollTo({
           top: Number(savedScrollForHome),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
-        localStorage.removeItem("savedScrollForHome");
+        localStorage.removeItem('savedScrollForHome');
       } else {
-        window.scrollTo({ top: Number(scrollPosition), behavior: "smooth" });
+        window.scrollTo({ top: Number(scrollPosition), behavior: 'smooth' });
       }
     }, 0);
   }, [selectedCategory]);
@@ -458,18 +458,18 @@ const Care: React.FC<CareProps> = (props) => {
   }, [groupCategories]);
 
   useEffect(() => {
-    if (!!pageData?.length && (!!groups?.length || page === "client-home")) {
+    if (!!pageData?.length && (!!groups?.length || page === 'client-home')) {
       setScrollState(
         pageData?.map((item: any) => ({
           isAtStart: true,
           isAtEnd: item?.exercises.length < 6,
-        }))
+        })),
       );
       const selectedGroup = JSON.parse(
-        localStorage.getItem("selectedGroup") || "{}"
+        localStorage.getItem('selectedGroup') || '{}',
       );
       const selectedCategory = JSON.parse(
-        localStorage.getItem("selectedCategory") || "{}"
+        localStorage.getItem('selectedCategory') || '{}',
       );
       if (!selectedGroup?.name && !selectedCategory?.category?.name) {
         setLoadingFrom(false);
@@ -481,10 +481,10 @@ const Care: React.FC<CareProps> = (props) => {
         getGroupCategories(selectedGroup.uuid, 1);
         window.scrollTo({
           top: Number(scrollPositionFromCare),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
         setTimeout(() => {
-          localStorage.removeItem("scrollPositionFromCare");
+          localStorage.removeItem('scrollPositionFromCare');
         }, 15000);
       }
       if (!!pageData?.length && selectedCategory.category) {
@@ -495,18 +495,18 @@ const Care: React.FC<CareProps> = (props) => {
         setLoadingFrom(false);
         window.scrollTo({
           top: Number(scrollPositionFromCare),
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       } else if (scrollPositionFromCare && !!pageData?.length) {
         setScrollPosition(Number(scrollPositionFromCare));
         setTimeout(() => {
           window.scrollTo({
             top: Number(scrollPositionFromCare),
-            behavior: "smooth",
+            behavior: 'smooth',
           });
         }, 100);
         setTimeout(() => {
-          localStorage.removeItem("scrollPositionFromCare");
+          localStorage.removeItem('scrollPositionFromCare');
         }, 100);
       }
     }
@@ -514,15 +514,15 @@ const Care: React.FC<CareProps> = (props) => {
 
   useEffect(() => {
     if (
-      !location.hash.includes("selected_group") &&
-      !location.hash.includes("selected_category")
+      !location.hash.includes('selected_group') &&
+      !location.hash.includes('selected_category')
     ) {
       setSelectedGroup(GroupAll);
-      localStorage.removeItem("selectedGroup");
+      localStorage.removeItem('selectedGroup');
     }
-    if (!location.hash.includes("selected_category")) {
+    if (!location.hash.includes('selected_category')) {
       setSelectedCategory(null);
-      localStorage.removeItem("selectedCategory");
+      localStorage.removeItem('selectedCategory');
     }
   }, [location]);
 
@@ -533,13 +533,13 @@ const Care: React.FC<CareProps> = (props) => {
     let updatedPageData = [...exercises];
     if (favoriteExercises?.length) {
       const hasFavourites = updatedPageData.some(
-        (row) => row.category?.name === "Favourites"
+        (row) => row.category?.name === 'Favourites',
       );
       if (!hasFavourites) {
         updatedPageData = [
           updatedPageData[0], // Keep the first item
           {
-            category: { id: Date.now(), name: "Favourites" },
+            category: { id: Date.now(), name: 'Favourites' },
             exercises: favoriteExercises,
           },
           ...updatedPageData.slice(1),
@@ -581,11 +581,14 @@ const Care: React.FC<CareProps> = (props) => {
     }
   }, [groups, refGroups.current]);
 
+  console.log(page, 'wefjkn');
   return (
     <>
-      <Helmet>
-        <title>Offload | Care</title>
-      </Helmet>
+      {page === 'client-home' ? null : (
+        <Helmet>
+          <title>Offload | Care</title>
+        </Helmet>
+      )}
       {!loadingFrom && (
         <div
           className={cn(styles.pageWrapper, {
@@ -593,18 +596,18 @@ const Care: React.FC<CareProps> = (props) => {
               (!user?.isSubscribed || user?.paidStatus !== PaidStatus.Paid) &&
               user?.type === USER_TYPES.THERAPIST,
             [styles.publicLayoutCare]:
-              !user?.uuid && !location.pathname.includes("client-home"),
+              !user?.uuid && !location.pathname.includes('client-home'),
           })}
         >
-          {location.pathname.includes("client-home") &&
+          {location.pathname.includes('client-home') &&
             selectedCategory &&
             isMobileScreen && (
               <div
                 className={styles.groupBackWrapper}
-                style={{ padding: "0 20px" }}
+                style={{ padding: '0 20px' }}
               >
                 <i
-                  className={cn("icon-left-arrow", styles.groupBackMobile)}
+                  className={cn('icon-left-arrow', styles.groupBackMobile)}
                   onClick={onBackHandler}
                 />
                 <span className={styles.groupNameTitleMobile}>
@@ -613,7 +616,7 @@ const Care: React.FC<CareProps> = (props) => {
               </div>
             )}
           {!isMobileScreen &&
-            selectedGroup.uuid !== "all" &&
+            selectedGroup.uuid !== 'all' &&
             !selectedCategory &&
             widthTitle && (
               <div className={styles.titleWrapper}>
@@ -624,13 +627,13 @@ const Care: React.FC<CareProps> = (props) => {
                       !isMobileScreen && !user?.type,
                   })}
                 >
-                  {!!user?.type ? "Care" : "Therapy Tools"}
+                  {!!user?.type ? 'Care' : 'Therapy Tools'}
                 </span>
               </div>
             )}
           {!(
             !isMobileScreen &&
-            (selectedCategory || selectedGroup.uuid !== "all")
+            (selectedCategory || selectedGroup.uuid !== 'all')
           ) &&
             widthTitle && (
               <div
@@ -638,10 +641,10 @@ const Care: React.FC<CareProps> = (props) => {
                   [styles.titleSelectedClient]:
                     !!selectedCategory &&
                     user?.type === USER_TYPES.CLIENT &&
-                    location.pathname.includes("care"),
+                    location.pathname.includes('care'),
                 })}
               >
-                {(!selectedGroup || selectedGroup?.uuid === "all") &&
+                {(!selectedGroup || selectedGroup?.uuid === 'all') &&
                   !selectedCategory && (
                     <span
                       className={cn(styles.title, {
@@ -651,17 +654,17 @@ const Care: React.FC<CareProps> = (props) => {
                           !isMobileScreen && !user?.type,
                       })}
                     >
-                      {!!user?.type ? "Care" : "Therapy Tools"}
+                      {!!user?.type ? 'Care' : 'Therapy Tools'}
                     </span>
                   )}
                 {selectedGroup &&
                   !selectedCategory &&
-                  selectedGroup.uuid !== "all" && (
+                  selectedGroup.uuid !== 'all' && (
                     <div className={styles.groupBackWrapper}>
                       <i
                         className={cn(
-                          "icon-left-arrow",
-                          styles.groupBackMobile
+                          'icon-left-arrow',
+                          styles.groupBackMobile,
                         )}
                         onClick={onGroupBackHandler}
                       />
@@ -673,7 +676,7 @@ const Care: React.FC<CareProps> = (props) => {
                 {selectedGroup && selectedCategory && (
                   <div className={styles.groupBackWrapper}>
                     <i
-                      className={cn("icon-left-arrow", styles.groupBackMobile)}
+                      className={cn('icon-left-arrow', styles.groupBackMobile)}
                       onClick={onBackHandler}
                     />
                     <span className={styles.groupNameTitleMobile}>
@@ -684,7 +687,7 @@ const Care: React.FC<CareProps> = (props) => {
                 {!selectedGroup && selectedCategory && (
                   <div className={styles.groupBackWrapper}>
                     <i
-                      className={cn("icon-left-arrow", styles.groupBackMobile)}
+                      className={cn('icon-left-arrow', styles.groupBackMobile)}
                       onClick={onBackHandler}
                     />
                     <span className={styles.groupNameTitleMobile}>
@@ -696,24 +699,24 @@ const Care: React.FC<CareProps> = (props) => {
             )}
           {!user?.type &&
             !selectedCategory &&
-            location.pathname.includes("public/care") &&
+            location.pathname.includes('public/care') &&
             (!isMobileScreen ||
-              (isMobileScreen && selectedGroup?.uuid === "all")) && (
+              (isMobileScreen && selectedGroup?.uuid === 'all')) && (
               <span className={styles.subtitle2}>
                 For therapists and their clients
               </span>
             )}
           {!user?.type &&
             !selectedCategory &&
-            location.pathname.includes("public/care") &&
+            location.pathname.includes('public/care') &&
             (!isMobileScreen ||
-              (isMobileScreen && selectedGroup?.uuid === "all")) && (
+              (isMobileScreen && selectedGroup?.uuid === 'all')) && (
               <div className={styles.pointsWrapper}>
                 {CareMockDots.map((item) => {
                   return (
                     <div className={styles.pointWrapper} key={item}>
                       <div className={styles.yellowCircle}>
-                        <i className={cn("icon-check", styles.icon)} />
+                        <i className={cn('icon-check', styles.icon)} />
                       </div>
                       <span className={styles.pointText}>{item}</span>
                     </div>
@@ -732,9 +735,9 @@ const Care: React.FC<CareProps> = (props) => {
                 [styles.selectedTherapistCare]:
                   user?.type === USER_TYPES.THERAPIST,
                 [styles.selectedWrapperHome]:
-                  location.pathname.includes("client-home") ||
+                  location.pathname.includes('client-home') ||
                   (user?.type === USER_TYPES.CLIENT &&
-                    location.pathname.includes("care")),
+                    location.pathname.includes('care')),
               })}
             >
               {!isMobileScreen && (
@@ -742,7 +745,7 @@ const Care: React.FC<CareProps> = (props) => {
                   className={styles.iconWrapperSelected}
                   onClick={onBackHandler}
                 >
-                  <i className={cn("icon-left-arrow")} />
+                  <i className={cn('icon-left-arrow')} />
                 </div>
               )}
               {!isMobileScreen && (
@@ -763,7 +766,7 @@ const Care: React.FC<CareProps> = (props) => {
                     onFavoriteClick={onFavorite}
                     onCardClick={onCardClick}
                     onShare={onExerciseShare}
-                    size={isMobileScreen ? "medium" : "large"}
+                    size={isMobileScreen ? 'medium' : 'large'}
                   />
                 ))}
               </div>
@@ -781,9 +784,9 @@ const Care: React.FC<CareProps> = (props) => {
             >
               {!selectedCategory &&
                 ((isMobileScreen &&
-                  (selectedGroup?.uuid === "all" || !selectedGroup)) ||
+                  (selectedGroup?.uuid === 'all' || !selectedGroup)) ||
                   !isMobileScreen) &&
-                location.pathname.includes("care") &&
+                location.pathname.includes('care') &&
                 !!groups?.length && (
                   <div className={styles.groupsMain}>
                     {!isMobileScreen && (
@@ -793,11 +796,11 @@ const Care: React.FC<CareProps> = (props) => {
                           styles.firstWrapper,
                           {
                             [styles.disabled]: scrollStateGroups.isAtStart,
-                          }
+                          },
                         )}
                         onClick={handleLeftArrowClickGroups}
                       >
-                        <i className={cn("icon-left-arrow")} />
+                        <i className={cn('icon-left-arrow')} />
                       </span>
                     )}
                     <div
@@ -805,7 +808,7 @@ const Care: React.FC<CareProps> = (props) => {
                       ref={refGroups}
                       onScroll={handleScrollGroups}
                     >
-                      {[{ uuid: "all", name: "All" }, ...groups]?.map(
+                      {[{ uuid: 'all', name: 'All' }, ...groups]?.map(
                         (group: any) => (
                           <div
                             className={cn(styles.groupWrapper, {
@@ -820,7 +823,7 @@ const Care: React.FC<CareProps> = (props) => {
                               {group?.name}
                             </span>
                           </div>
-                        )
+                        ),
                       )}
                     </div>
                     {!isMobileScreen && (
@@ -830,11 +833,11 @@ const Care: React.FC<CareProps> = (props) => {
                           styles.secondWrapper,
                           {
                             [styles.disabled]: scrollStateGroups.isAtEnd,
-                          }
+                          },
                         )}
                         onClick={handleRightArrowClickGroups}
                       >
-                        <i className={cn("icon-right-arrow")} />
+                        <i className={cn('icon-right-arrow')} />
                       </span>
                     )}
                   </div>
@@ -852,7 +855,7 @@ const Care: React.FC<CareProps> = (props) => {
               {/*)}*/}
               {selectedGroup &&
                 !selectedCategory &&
-                getGroupCategoriesStatus === "SUCCESS" && (
+                getGroupCategoriesStatus === 'SUCCESS' && (
                   <>
                     {pageDataGroup?.map((item, index) => (
                       <>
@@ -871,7 +874,7 @@ const Care: React.FC<CareProps> = (props) => {
                                     })}
                                     onClick={() => handleLeftArrowClick(index)}
                                   >
-                                    <i className={cn("icon-left-arrow")} />
+                                    <i className={cn('icon-left-arrow')} />
                                   </div>
                                   <div
                                     className={cn(styles.iconWrapper, {
@@ -880,7 +883,7 @@ const Care: React.FC<CareProps> = (props) => {
                                     })}
                                     onClick={() => handleRightArrowClick(index)}
                                   >
-                                    <i className={cn("icon-right-arrow")} />
+                                    <i className={cn('icon-right-arrow')} />
                                   </div>
                                 </div>
                               )}
@@ -909,14 +912,14 @@ const Care: React.FC<CareProps> = (props) => {
                                   onFavoriteClick={onFavorite}
                                   onCardClick={onCardClick}
                                   onShare={onExerciseShare}
-                                  size={isMobileScreen ? "small" : "large"}
+                                  size={isMobileScreen ? 'small' : 'large'}
                                   isFavoritable={!!user?.uuid}
                                 />
                               ))}
                             </div>
                           </div>
                         </div>
-                        {location.pathname.includes("care") && index === 1 && (
+                        {location.pathname.includes('care') && index === 1 && (
                           <div
                             className={styles.feedbackBannerWrapper}
                             onClick={onFeedbackBanner}
@@ -928,10 +931,10 @@ const Care: React.FC<CareProps> = (props) => {
                                 tools you’d like to see.
                               </span>
                             </div>
-                            <i className={cn("icon-right-arrow")} />
+                            <i className={cn('icon-right-arrow')} />
                           </div>
                         )}
-                        {!location.pathname.includes("care") &&
+                        {!location.pathname.includes('care') &&
                           index === 0 &&
                           !selectedCategory &&
                           !profile?.acceptedCounts && (
@@ -949,7 +952,7 @@ const Care: React.FC<CareProps> = (props) => {
                                   and more.
                                 </span>
                                 <Button
-                                  label={"Connect your therapist"}
+                                  label={'Connect your therapist'}
                                   className={styles.connectButton}
                                   onClick={onConnectClick}
                                 />
@@ -965,15 +968,15 @@ const Care: React.FC<CareProps> = (props) => {
                     ))}
                   </>
                 )}
-              {getGroupCategoriesStatus === "LOADING" && <LoadingScreen />}
+              {getGroupCategoriesStatus === 'LOADING' && <LoadingScreen />}
               {selectedGroup &&
-                selectedGroup.uuid !== "all" &&
+                selectedGroup.uuid !== 'all' &&
                 !selectedCategory &&
-                getGroupCategoriesStatus === "SUCCESS" &&
+                getGroupCategoriesStatus === 'SUCCESS' &&
                 !groupCategories?.length && (
                   <>
                     <h3>There is no category to show!</h3>
-                    {location.pathname.includes("care") && (
+                    {location.pathname.includes('care') && (
                       <div
                         className={styles.feedbackBannerWrapper}
                         onClick={onFeedbackBanner}
@@ -985,13 +988,13 @@ const Care: React.FC<CareProps> = (props) => {
                             tools you’d like to see.
                           </span>
                         </div>
-                        <i className={cn("icon-right-arrow")} />
+                        <i className={cn('icon-right-arrow')} />
                       </div>
                     )}
                   </>
                 )}
               {!selectedCategory &&
-                (selectedGroup?.uuid === "all" || !selectedGroup) && (
+                (selectedGroup?.uuid === 'all' || !selectedGroup) && (
                   <>
                     {pageData?.map((item, index) => (
                       <>
@@ -1010,7 +1013,7 @@ const Care: React.FC<CareProps> = (props) => {
                                     })}
                                     onClick={() => handleLeftArrowClick(index)}
                                   >
-                                    <i className={cn("icon-left-arrow")} />
+                                    <i className={cn('icon-left-arrow')} />
                                   </div>
                                   <div
                                     className={cn(styles.iconWrapper, {
@@ -1019,7 +1022,7 @@ const Care: React.FC<CareProps> = (props) => {
                                     })}
                                     onClick={() => handleRightArrowClick(index)}
                                   >
-                                    <i className={cn("icon-right-arrow")} />
+                                    <i className={cn('icon-right-arrow')} />
                                   </div>
                                 </div>
                               )}
@@ -1048,14 +1051,14 @@ const Care: React.FC<CareProps> = (props) => {
                                   onFavoriteClick={onFavorite}
                                   onCardClick={onCardClick}
                                   onShare={onExerciseShare}
-                                  size={isMobileScreen ? "small" : "large"}
+                                  size={isMobileScreen ? 'small' : 'large'}
                                   isFavoritable={!!user?.uuid}
                                 />
                               ))}
                             </div>
                           </div>
                         </div>
-                        {location.pathname.includes("care") && index === 1 && (
+                        {location.pathname.includes('care') && index === 1 && (
                           <div
                             className={styles.feedbackBannerWrapper}
                             onClick={onFeedbackBanner}
@@ -1067,10 +1070,10 @@ const Care: React.FC<CareProps> = (props) => {
                                 tools you’d like to see.
                               </span>
                             </div>
-                            <i className={cn("icon-right-arrow")} />
+                            <i className={cn('icon-right-arrow')} />
                           </div>
                         )}
-                        {!location.pathname.includes("care") &&
+                        {!location.pathname.includes('care') &&
                           index === 0 &&
                           !selectedCategory &&
                           !profile?.acceptedCounts && (
@@ -1107,7 +1110,7 @@ const Care: React.FC<CareProps> = (props) => {
                                     className={styles.therapistsActionWrapper}
                                   >
                                     <Button
-                                      label={"Connect your therapist"}
+                                      label={'Connect your therapist'}
                                       className={styles.connectButton}
                                       onClick={onConnectClick}
                                     />
@@ -1149,7 +1152,7 @@ const Care: React.FC<CareProps> = (props) => {
           )}
           {!selectedCategory &&
             !user?.uuid &&
-            location.pathname.includes("care") && (
+            location.pathname.includes('care') && (
               <div className={styles.bottomInfoWrapper}>
                 <span className={styles.infoLabel}>
                   🙌 Our mission is to make mental health tools accessible and
@@ -1158,7 +1161,7 @@ const Care: React.FC<CareProps> = (props) => {
                 <span className={styles.infoLabel}>
                   The materials on Offload are for educational and informational
                   purposes. They are designed to support, not replace,
-                  professional therapy or counselling.{" "}
+                  professional therapy or counselling.{' '}
                 </span>
               </div>
             )}
@@ -1172,7 +1175,7 @@ const Care: React.FC<CareProps> = (props) => {
           )}
           {connectShow && (
             <AppModal
-              width={isMobileScreen ? "100%" : 375}
+              width={isMobileScreen ? '100%' : 375}
               {...modalHandlers}
               withBorder={!isMobileScreen}
               closeIcon={connectStep === 1}
