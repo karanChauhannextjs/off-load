@@ -1,0 +1,40 @@
+.addCardWrapper {
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  gap: 9px;
+
+  span {
+    margin-left: 3px;
+  }
+
+  .addCard {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 154px;
+    height: 180px;
+    border-radius: 8px;
+    background-color: var(--app-gray-3);
+
+    .plusWrapper {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--app-white-1);
+
+      .plusIcon {
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+.medium{
+  width: 162px !important;
+  height: 190px !important;
+}

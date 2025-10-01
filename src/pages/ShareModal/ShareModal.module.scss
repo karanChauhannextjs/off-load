@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .topWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--app-gray-11);
+  }
+  .bottomWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+
+    .text{
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.title {
+  font-family: Gilroy-Bold;
+  margin-bottom: 9px;
+}
+.link {
+  font-size: 14px;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .icon {
+    color: var(--app-black-1);
+    font-size: 16px;
+    font-family: Gilroy-Bold;
+  }
+}

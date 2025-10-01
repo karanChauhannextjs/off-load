@@ -1,0 +1,82 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+
+  .logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .title {
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .actionsWrapper {
+    display: flex;
+    margin-left: auto;
+    gap: 16px;
+    align-items: center;
+
+    .aboutLabel {
+      line-height: 125%;
+      cursor: pointer;
+      margin-right: 18px;
+    }
+
+    .loginButton {
+      padding: 13px 12.5px;
+      color: var(--app-black-1);
+      background-color: var(--app-gray-3);
+    }
+
+    .signupButton {
+      padding: 13px 17px;
+      color: var(--app-black-1);
+      background-color: var(--app-yellow-1);
+    }
+  }
+}
+
+.button {
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  font-family: Gilroy-Medium;
+  font-size: 16px;
+  line-height: 125%;
+  border-radius: 10px;
+  border: 1px solid #000;
+  justify-content: center;
+
+}
+
+.closeWrapper {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .actionsWrapper {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .closeWrapper {
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+
+    .closeIcon {
+      display: flex;
+      font-size: 21px;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+  }
+}

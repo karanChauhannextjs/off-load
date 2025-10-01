@@ -1,0 +1,332 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 320px);
+  align-items: center;
+  height: 100%;
+
+  .mainBlock {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+    .topActions {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      z-index: 9;
+
+      .iconWrapper {
+        display: flex;
+        height: min-content;
+        cursor: pointer;
+
+        .arrow {
+          font-size: 24px;
+        }
+
+        .plus {
+          font-size: 29px;
+          transform: rotateZ(45deg);
+        }
+      }
+
+      .closeWrapper {
+        margin-left: auto;
+      }
+    }
+
+    .mainBody {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .mainBlock2 {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+
+        .firsStepWrapper {
+          height: 100%;
+          padding-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+
+          .firstScrollable{
+            display: flex;
+            flex-direction: column;
+            height: 530px;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+          }
+          .firstScrollable::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+
+          .causesWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 26px;
+            max-width: 283px;
+            width: 100%;
+            align-self: center;
+            padding-bottom: 11px;
+            scrollbar-width: none;
+          }
+        }
+
+        .secondStepWrapper {
+          width: 100%;
+          position: relative;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding-top: 38px;
+
+          .selectedCausesWrapper {
+            width: min-content;
+            position: absolute;
+            top: 75px;
+            display: flex;
+            margin-left: 30%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: none;
+          }
+
+          .noteWrapper {
+            position: relative;
+            margin-left: 145px;
+            margin-top: -30px;
+            z-index: 9;
+            height: 162px;
+            display: flex;
+            background-image: url("../../assets/svg/checkinNoteBack.svg");
+            background-repeat: no-repeat;
+            padding: 26px 21px;
+
+            .notesLimit{
+              position: absolute;
+              top: -12px;
+              left: 295px;
+              color: #999CA6;
+              font-family: Gilroy-Medium;
+              font-size: 12px;
+              line-height: 125%;
+            }
+
+            .textarea{
+              width: 301px;
+              height: 111px;
+              outline: none;
+              border: none;
+              resize: none;
+              background-color: transparent;
+              font-family: Gilroy-Medium;
+              font-size: 16px;
+              line-height: 125%;
+
+              &::placeholder{
+                color: rgba(51, 51, 51, 0.50);
+                font-family: Gilroy-Medium;
+                font-size: 16px;
+                line-height: 125%;
+              }
+            }
+          }
+
+          .offloadText{
+            font-family: Gilroy-Bold;
+            font-size: 20px;
+            line-height: 125%;
+            margin-top: 37px;
+          }
+
+          .arrowCheck{
+            width: 62px;
+            height: 52px;
+            margin-left: 335px;
+            margin-top: -27px;
+          }
+
+          .logo{
+            width: 70px;
+            height: 71px;
+            cursor: pointer;
+            margin-left: 400px;
+            margin-top: -43px;
+          }
+        }
+      }
+    }
+
+    .background {
+      width: 100%;
+      max-width: 625px;
+      display: flex;
+      background-image: url("../../assets/svg/yellowBack.svg");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      margin-top: -60px;
+    }
+  }
+
+
+.button2{
+  //margin-top: auto !important;
+  //margin-bottom: 50px !important;
+}
+
+.selectedCausesWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.causesWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.cause {
+  padding: 0 !important;
+  min-width: 138px !important;
+  max-width: 138px !important;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../assets/svg/causeYellow.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .causeLabel {
+    text-align: center;
+    font-family: Gilroy-Bold;
+    font-size: 14px;
+    line-height: 125%;
+    margin-top: -5px;
+  }
+}
+
+.selectedCause {
+  background-image: url("../../assets/svg/causeWhite.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.question {
+  display: flex;
+  width: 294px;
+  text-align: center;
+  align-self: center;
+  font-family: Gilroy-Bold;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 130%;
+  letter-spacing: -0.22px;
+  margin-top: 14px;
+}
+
+.selectLabel {
+  color: #C8AF5A;
+  font-family: Gilroy-Bold;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 130%;
+  letter-spacing: -0.12px;
+  margin-top: 15px;
+}
+
+.smile {
+  display: flex;
+  width: 110px;
+  height: 110px;
+  align-self: center;
+}
+
+.button {
+  align-self: center;
+  width: 335px;
+  cursor: default;
+  margin-top: 10px;
+}
+
+.buttonEnabled {
+  background-color: var(--app-white-1);
+  cursor: pointer;
+}
+
+.label {
+  color: #E6C861;
+  font-family: Gilroy-Bold;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 130%;
+  letter-spacing: -0.5px;
+  margin-right: 120px;
+}
+
+.note {
+  margin: 30px 160px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    width: 100%;
+  }
+
+  .mainBlock2 {
+    padding-top: 0 !important;
+  }
+
+  .mainBlock {
+    padding: 0 20px !important;
+  }
+
+  .topActions {
+    padding-top: 5px;
+  }
+
+  .firstScrollable{
+    height: calc(100vh - 190px) !important;
+  }
+
+  .firstScrollableSignout{
+    height: calc(100vh - 260px) !important;
+  }
+
+  .selectLabel {
+    margin-top: 11px;
+  }
+
+  .selectedCausesWrapper {
+    width: calc(100% - 25px) !important;
+    margin-left: 45px !important;
+  }
+
+  .noteWrapper {
+    margin-left: 0 !important;
+  }
+
+  .arrowCheck{
+    margin-left: 198px!important;
+  }
+
+  .logo{
+    margin-left: 263px !important;
+  }
+
+  .button {
+    margin-top: auto;
+  }
+}

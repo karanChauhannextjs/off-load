@@ -1,0 +1,169 @@
+.burgerWrapper {
+  display: none;
+  opacity: 0;
+  width: calc(100vw);
+  height: 100svh;
+  background-color: var(--app-white-1);
+  z-index: 999;
+  transform: translateX(-100%);
+  padding: 8px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  .burgerMain {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .burgerTop {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+
+      .logoWrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .logo {
+          width: 34px;
+          height: 34px;
+        }
+
+        .title {
+          font-family: Poppins;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 125%;
+        }
+      }
+    }
+
+    .actionsWrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .burgerTabs {
+      display: flex;
+      margin-top: 77px;
+      flex-direction: column;
+
+      .tabsWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        .row {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 25px;
+
+          i {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    .burgerBottom {
+      display: flex;
+      flex-direction: column;
+      margin-top: 35px;
+
+      .label {
+        font-family: Gilroy-Medium;
+        line-height: 125%;
+        text-decoration: none;
+        color: var(--app-black-1);
+      }
+
+      .feedbackWrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 12px;
+        cursor: pointer;
+      }
+
+      .privacyRow {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 24px 0;
+
+        .dot {
+          width: 3px;
+          height: 3px;
+          background-color: var(--app-gray-4);
+          border-radius: 50%;
+          cursor: default;
+        }
+      }
+
+      .lightLabel {
+        color: var(--app-gray-4);
+        font-size: 14px;
+        line-height: 125%;
+      }
+
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.signUpButton {
+  color: var(--app-black-1);
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  font-family: Gilroy-Medium;
+  font-size: 16px;
+  line-height: 125%;
+  border-radius: 10px;
+  border: 1px solid #000;
+  justify-content: center;
+  padding: 13px 17px;
+  background-color: var(--app-yellow-1);
+}
+
+.login {
+  margin-bottom: 19px;
+}
+
+.about {
+  margin-bottom: 24px;
+}
+
+.label {
+  font-size: 18px;
+  line-height: 125%;
+}
+
+.closeIcon {
+  margin-top: -2px;
+  display: flex;
+  font-size: 20px !important;
+  transform: rotateZ(45deg);
+}
+
+.visible {
+  display: flex;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  transform: translateX(0);
+  overflow-x: hidden;
+}
+
+.line {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--app-gray-3);
+}

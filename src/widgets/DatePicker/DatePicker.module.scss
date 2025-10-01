@@ -1,0 +1,92 @@
+.datePicker {
+  width: 340px;
+
+  .dateControl {
+    margin-bottom: 20px;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dateControlAction {
+      gap: 30px;
+      font-size: 20px;
+      border-radius: 20px;
+      align-items: center;
+      display: inline-flex;
+      color: var(--app-gray-5);
+
+      .arrowIcon {
+        cursor: pointer;
+      }
+    }
+
+    .dateControlPreview {
+      span {
+        font-family: Gilroy-Bold;
+        font-size: 20px;
+        color: var(--app-black-1);
+      }
+    }
+  }
+
+  .datePopupGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    border-bottom: 1px solid #d5d4df;
+
+    .weekCode {
+      padding-bottom: 14px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--app-black-1);
+    }
+
+    .dateItem {
+      position: relative;
+      display: flex;
+      height: 48.5px;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #d5d4df;
+      border-right: 0.5px solid #d5d4df;
+      border-bottom: none;
+      color: var(--app-black-1);
+      transition: 0.125s background-color ease-in-out,
+      0.125s color ease-in-out;
+
+      &.notInSelectedMonth {
+        color: #a8a8a8;
+        background-color: var(--app-gray-3);
+      }
+
+      &.selected {
+        background-color: var(--app-yellow-1);
+        color: var(--app-black-1);
+      }
+
+      &:not(.selected):hover {
+        background-color: var(--app-gray-3);
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        color: var(--app-gray-5);
+        background-color: transparent !important;
+      }
+
+      .dot {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        display: flex;
+        background-color: var(--app-black-1);
+        border-radius: 50%;
+        bottom: 11px;
+      }
+    }
+  }
+}

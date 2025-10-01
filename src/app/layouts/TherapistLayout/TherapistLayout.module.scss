@@ -1,0 +1,129 @@
+.container {
+  display: flex;
+  padding: 18px 39px;
+  position: relative;
+  flex-direction: column;
+  max-width: 1920px;
+  width: 100%;
+
+  .body {
+    display: flex;
+  }
+}
+
+.burgerIconWrapper {
+  display: none;
+}
+
+.upgradeButton {
+  display: none;
+}
+
+.tabBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--app-white-1);
+  padding: 9px 0;
+  z-index: 99;
+}
+
+.tabBarHide {
+  height: 0 !important;
+
+  * {
+    display: none !important;
+  }
+}
+
+.tabHideActivity {
+  padding: 0 !important;
+}
+
+.header {
+  position: fixed;
+  z-index: 999;
+  padding-right: 62px;
+}
+
+.sidebar {
+  position: fixed;
+}
+
+.main {
+  width: 100%;
+  padding: 32px 0 0 272px;
+}
+
+@media screen and (max-width: 1300px) {
+  .main {
+    padding: 32px 0 0 230px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main {
+    padding: 32px 0 0 210px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .main {
+    padding: 32px 0 0 190px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .burgerIconWrapper {
+    position: absolute;
+    display: block;
+    z-index: 99;
+    right: 20px;
+  }
+
+  .upgradeButton {
+    position: absolute;
+    width: fit-content;
+    cursor: pointer;
+    display: flex;
+    padding: 8px 21px 8px 20px;
+    align-items: center;
+    gap: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--app-black-1);
+    background: var(--app-yellow-1);
+    z-index: 99;
+    right: 62px;
+    top: 0;
+
+    .upgradeIcon {
+      height: 16px !important;
+    }
+  }
+
+  .main {
+    padding: 0 !important;
+  }
+  .container {
+    padding: 8px 20px;
+  }
+  .header {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .tabBar {
+    display: none;
+  }
+}

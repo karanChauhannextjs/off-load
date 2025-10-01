@@ -1,0 +1,603 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding-right: 150px;
+  flex-direction: column;
+  padding-bottom: 45px;
+  margin-left: 12px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .topBlock {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      .leftSide {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .rightSide {
+        margin-top: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+
+        .label3 {
+          font-family: Gilroy-Bold;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .feedbackButton {
+      margin-right: 100px;
+      width: 210px;
+      align-self: center;
+      border: 1px solid var(--app-gray-3);
+      font-family: Gilroy-Medium;
+      border-radius: 5px;
+    }
+
+    .block {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 26px;
+      gap: 12px;
+
+      .inputsWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .inputRow {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--app-gray-3);
+          }
+        }
+      }
+
+      .socialWrapper {
+        display: flex;
+        gap: 8px;
+      }
+
+      .checkedBadge {
+        border: 1px solid var(--app-black-1);
+      }
+
+      .linksWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        max-width: 290px;
+        width: 100%;
+
+        .linkRow {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .linkInput {
+            input {
+              height: 30px;
+              padding: 6px 8px 6px 15px;
+              border-radius: 16px;
+            }
+          }
+        }
+      }
+
+      .badgesWrapper {
+        display: flex;
+        max-width: 670px;
+        width: 100%;
+        gap: 9px;
+        flex-wrap: wrap;
+
+        .addNew {
+          display: flex;
+          gap: 7px;
+          cursor: pointer;
+          align-items: center;
+          padding: 6px 14px;
+          border-radius: 16px;
+          background-color: var(--app-gray-3);
+
+          .addLabel {
+            font-size: 14px;
+            color: var(--app-gray-6);
+          }
+        }
+
+        .newInputWrapper {
+          display: flex;
+          gap: 4px;
+
+          .newSpecInput {
+            input {
+              height: 30px !important;
+              padding: 6px 8px 6px 15px;
+              border-radius: 16px;
+            }
+          }
+        }
+      }
+
+      .uploadWrapper {
+        display: flex;
+        position: relative;
+        height: 210px;
+        width: 100%;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        min-width: calc(100vw - 20px);
+        -ms-overflow-style: none;
+      }
+
+      .uploadWrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .uploadMain {
+        display: flex;
+        margin-top: 7px;
+        gap: 10px;
+        position: absolute;
+
+        .uploadBlock {
+          display: flex;
+          position: relative;
+          height: 200px;
+          width: 200px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          background-color: var(--app-gray-3);
+
+          .capturedImage {
+            border-radius: 5px;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .icon {
+            font-size: 28px;
+            color: var(--app-gray-6);
+          }
+
+          .playWrapper {
+            cursor: pointer;
+            display: flex;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+            z-index: 99;
+
+            .playIcon {
+              color: var(--app-white-1);
+            }
+          }
+
+          .binWrapper {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            position: absolute;
+            cursor: pointer;
+            border: 2px solid var(--app-black-1);
+            background-color: var(--app-white-1);
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            right: 45px;
+            bottom: 10px;
+            z-index: 99 !important;
+          }
+        }
+      }
+    }
+
+    .shortBioTop {
+      position: relative;
+      display: flex;
+      max-width: 335px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .fullBioTop {
+      position: relative;
+      display: flex;
+      max-width: 489px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.wrapperWithUpgradeBanner {
+  padding-top: 85px;
+
+  .main {
+    margin-top: 20px ;
+  }
+}
+
+.timezonesLabels {
+  display: flex;
+  flex-direction: column;
+}
+
+.timezoneLabels {
+  font-family: Gilroy-Medium;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: auto;
+  transform: rotateZ(45deg) translateY(15px) translateX(10px);
+  z-index: 9;
+}
+
+.avatarUpload {
+  position: absolute;
+  left: 84px;
+  bottom: 4px;
+
+  div {
+    background-color: var(--app-yellow-1);
+  }
+}
+
+.upload {
+  position: absolute;
+  right: 9px;
+  bottom: 10px;
+}
+
+.uploaded {
+  z-index: 99;
+
+  div {
+    background-color: var(--app-white-1);
+  }
+}
+
+.videoThumbWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+
+  .video2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+
+.videoThumbnail {
+  display: flex;
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: fill;
+  border-radius: 5px;
+}
+
+.label {
+  font-family: Gilroy-Bold;
+  font-size: 14px;
+}
+
+.label2 {
+  font-size: 14px;
+}
+
+.label3 {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.label4 {
+  font-weight: 400;
+}
+
+.label5 {
+  display: flex;
+  max-width: 475px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--app-gray-16);
+  margin-top: -3px;
+}
+
+.label6 {
+  position: absolute;
+  right: 0;
+  top: 6px;
+  font-size: 12px;
+  color: var(--app-gray-15);
+}
+
+.label7 {
+  font-family: Gilroy-Bold;
+  font-size: 14px;
+  line-height: 125%;
+}
+
+.banner {
+  position: sticky;
+  top: 35px;
+  z-index: 99;
+  transform: translateY(-30px);
+}
+
+.bannerWithUpgrade {
+  position: sticky;
+  top: 115px;
+  z-index: 9;
+  //transform: translateY(-30px);
+}
+
+.badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+
+  i {
+    font-size: 15px;
+  }
+}
+
+.shortBio {
+  max-width: 335px;
+  width: 100%;
+
+  textarea {
+    height: 80px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+.fullBio {
+  max-width: 489px;
+  width: 100%;
+
+  textarea {
+    height: 205px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+.shortInput {
+  max-width: 335px;
+  width: 100%;
+
+
+  input {
+    font-size: 16px !important;
+    line-height: 26px !important;
+
+    &::placeholder {
+      font-size: 16px !important;
+      line-height: 26px !important;
+    }
+  }
+}
+
+.longInput {
+  max-width: 471px;
+  width: 100%;
+
+
+  input {
+    font-size: 16px !important;
+    line-height: 26px !important;
+
+    &::placeholder {
+      font-size: 16px !important;
+      line-height: 26px !important;
+    }
+  }
+}
+
+.videoWrapper {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.title {
+  font-family: Gilroy-Bold;
+  font-size: 20px;
+  display: none;
+}
+
+.videoModal {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.video {
+  width: 100%;
+  height: 80vh;
+}
+
+.videoFull {
+  display: flex;
+  width: 0;
+  height: 0;
+}
+
+@media screen and (max-width: 1439px) {
+  .wrapper {
+    padding-right: 110px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding-right: 70px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .rightSide {
+    margin-top: 0 !important;
+  }
+
+  .topBlock {
+    flex-direction: column;
+    margin-bottom: 26px;
+  }
+
+  .feedbackButton {
+    margin-left: 0;
+  }
+
+  .label3 {
+    font-size: 14px;
+    font-family: Gilroy-Bold;
+  }
+
+  .label4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .badgesWrapper {
+    max-width: 600px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    display: flex;
+  }
+  .feedbackButton {
+    margin-right: 0 !important;
+    margin-bottom: 50px;
+  }
+  .wrapper {
+    margin-left: 0;
+    padding-right: 0 !important;
+  }
+
+  .wrapperWithUpgradeBanner {
+    padding-top: 0 !important;
+
+    .main {
+      margin-top: 0 !important;
+    }
+  }
+
+  .banner {
+    transform: none;
+    margin: 10px 0 28px;
+    top: 5px;
+  }
+  .badgesWrapper {
+    max-width: 425px !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .uploadWrapper {
+    min-width: 100% !important;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+  .uploadWrapper {
+    min-width: calc(100vw - 60px) !important;
+  }
+  .form {
+    max-width: 335px;
+  }
+  .badgesWrapper {
+    max-width: 370px !important;
+  }
+  .line {
+    display: flex;
+    margin: 8px 0 0 -50%;
+    border-bottom: 1px solid var(--app-gray-3);
+    width: calc(100% + 48vw);
+  }
+  .avatarWrapper {
+    display: flex;
+    position: relative !important;
+    margin-left: 113px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .uploadWrapper {
+    min-width: calc(100vw - 40px) !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .line {
+    margin: 8px 0 0 -40%;
+    width: calc(100% + 39vw);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .line {
+    margin: 8px 0 0 -20%;
+    width: calc(100% + 18vw);
+  }
+  .uploadWrapper {
+    min-width: calc(100vw - 20px) !important;
+  }
+}
+

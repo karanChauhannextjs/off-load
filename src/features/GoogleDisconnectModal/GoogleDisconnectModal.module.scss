@@ -1,0 +1,18 @@
+.wrapper{
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  font-family: Gilroy-Bold;
+  font-size: 28px;
+  line-height: 130%;
+  letter-spacing: -0.28px;
+  margin-bottom: 14px;
+}
+
+.buttonDisconnect{
+  margin-top: 30px;
+  box-shadow: none!important;
+}

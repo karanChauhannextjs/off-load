@@ -1,0 +1,220 @@
+.plansWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    padding: 18px 39px;
+    align-items: center;
+
+    .title {
+      font-family: Poppins;
+      font-size: 22px;
+      font-weight: 700;
+    }
+  }
+
+  .plansMain {
+    width: 100%;
+    display: flex;
+    max-width: 1120px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+
+    .mainHeader {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+
+      .subtitle {
+        font-family: Gilroy-Bold;
+        font-size: 26px;
+        line-height: 125%;
+        margin: auto;
+      }
+
+      .closeIcon {
+        display: flex;
+        font-size: 21px;
+        font-weight: 700;
+        transform: rotate(45deg);
+        cursor: pointer;
+      }
+    }
+
+    .fromOnboarding {
+      margin-bottom: 83px;
+    }
+
+    .billingWrapper {
+      display: flex;
+      align-items: center;
+      width: 118px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid #DCDFED;
+      justify-content: space-between;
+      padding: 10px 10px 10px 25px;
+      cursor: pointer;
+      margin-bottom: 20px;
+
+      .arrow {
+        font-size: 14px;
+      }
+    }
+
+    .billingWrapper.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .billingWrapper.disabled .arrow {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+
+    .cardsWrapper {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      //justify-content: space-between;
+      gap: 37px;
+
+      .planCardWrapper {
+        display: flex;
+        width: 335px;
+        position: relative;
+        height: fit-content;
+        border-radius: 10px;
+        flex-direction: column;
+        border: 1px solid #DCDFED;
+        padding: 28px 22px 20px 25px;
+
+        .greenBox {
+          display: flex;
+          position: absolute;
+          width: 260px;
+          height: 38px;
+          background: #C5F3F1;
+          border-radius: 8px;
+          justify-content: center;
+          align-items: center;
+          left: 38px;
+          top: -24px;
+        }
+
+        .cardTitle {
+          font-family: Gilroy-Bold;
+          font-size: 20px;
+          line-height: 120%;
+          margin-bottom: 19px;
+        }
+
+        .priceRow {
+          display: flex;
+          align-items: center;
+          margin-bottom: 9px;
+          height: 36px;
+
+          .price {
+            font-family: Gilroy-Bold;
+            font-size: 30px;
+            line-height: 120%
+          }
+
+          .notActualPrice {
+            color: var(--app-gray-4) !important;
+            margin-right: 6px;
+          }
+
+          .monthLabel {
+            font-size: 17px;
+            margin-top: 6px;
+            margin-left: 8px;
+            line-height: 120%;
+            color: var(--app-gray-4);
+          }
+        }
+
+        .cardSubtitle {
+          font-family: Gilroy-Bold;
+          font-size: 30px;
+          line-height: 120%;
+          margin-bottom: 9px;
+        }
+
+        .button {
+          margin-top: 28px;
+        }
+
+        .includeWrapper {
+          gap: 12px;
+          display: flex;
+          margin-top: 31px;
+          flex-direction: column;
+
+          .includeRow {
+            gap: 8px;
+            display: flex;
+            align-items: center;
+
+            .includeLabel {
+              line-height: 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .billingMain {
+    width: 100%;
+    max-width: 335px;
+    align-self: center;
+    display: flex;
+  }
+
+  .billingWrapper {
+    margin-bottom: 53px !important;
+  }
+
+  .cardsWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 23px !important;
+    padding-bottom: 30px;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  .mainHeader {
+    margin-bottom: 26px !important;
+    padding: 10px 0 0;
+    flex-direction: column-reverse;
+    gap: 10px;
+
+    .closeIcon {
+      margin-left: auto;
+    }
+  }
+
+  .fromOnboarding {
+    margin-bottom: 57px !important;
+  }
+}

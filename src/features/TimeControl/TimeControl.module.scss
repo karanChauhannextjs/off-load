@@ -1,0 +1,14 @@
+.selectRow{
+  display: flex;
+  align-items: center;
+
+  .line{
+    margin: 0 12px;
+  }
+
+  .binIcon{
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+}

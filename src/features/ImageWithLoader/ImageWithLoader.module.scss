@@ -1,0 +1,92 @@
+.wrapper {
+  display: flex;
+  width: 360px;
+  height: 270px;
+}
+
+.imgSkeleton {
+  width: 360px;
+  height: 270px;
+  border-radius: 16px;
+}
+
+.chatImage {
+  width: 360px;
+  height: 270px;
+  border-radius: 16px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.imageWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 17px;
+
+  .image {
+    display: flex;
+    width: 690px;
+    height: 520px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+}
+
+.modal {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+
+  span {
+    top: 0;
+    right: 90px;
+    display: flex;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.60);
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 240px;
+    height: 160px;
+  }
+
+  .imgSkeleton {
+    width: 240px;
+    height: 160px;
+  }
+
+  .chatImage {
+    width: 240px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    span {
+      right: 27px;
+    }
+  }
+
+  .imageWrapper {
+    display: flex;
+    max-width: 650px;
+    max-height: 600px;
+    width: 100%;
+    height: 100%;
+
+    .image {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,610 @@
+.wrapper {
+  display: flex;
+  width: calc(100%);
+  flex-direction: column;
+  height: calc(100vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--app-gray-17);
+  padding: 24px 24px 10px;
+  transform: translateY(-52px);
+
+  .topBannerWrapper {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    align-items: center;
+
+    .referWrapper {
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      background: var(--app-white-1);
+      padding: 16px 17px 16px 12px;
+      height: 60px;
+      max-width: 304px;
+      width: 100%;
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+
+      .referLabel {
+        font-family: Gilroy-Bold;
+        margin-left: 9px;
+      }
+
+      .referSecondLabel {
+        color: var(--app-gray-8);
+        margin-left: auto;
+      }
+    }
+  }
+
+  .mainBody {
+    gap: 24px;
+    width: 100%;
+    display: flex;
+    margin-top: 24px;
+    justify-content: center;
+
+    .navbarWrapper {
+      display: flex;
+      height: fit-content;
+      flex-direction: column;
+      gap: 31px;
+      max-width: 304px;
+      width: 100%;
+      background-color: var(--app-yellow-2);
+      border-radius: 8px;
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+      padding: 19px 0 0 0;
+
+      .navbarTitle {
+        font-family: Gilroy-Bold;
+        font-size: 24px;
+        padding-left: 13px;
+      }
+
+      .tempLabel {
+        font-family: Gilroy-Bold;
+        font-size: 18px;
+        margin-top: 27px;
+      }
+    }
+
+    .whitenavBar {
+      background-color: var(--app-white-1);
+    }
+
+    .mainRightWrapper {
+      display: flex;
+      max-width: 304px;
+      width: 100%;
+      flex-direction: column;
+      gap: 26px;
+
+      .scheduleWrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--app-white-1);
+        border-radius: 8px;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+        padding: 19px 0 8px;
+
+        .title {
+          font-family: Gilroy-Bold;
+          font-size: 24px;
+          line-height: 125%;
+          margin-left: 13px;
+          margin-bottom: 16px;
+        }
+
+
+        .typeWrapper {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .colorCircle {
+            display: flex;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+          }
+
+          .session {
+            background-color: var(--app-blue-1);
+          }
+
+          .consultation {
+            background-color: var(--app-green-1);
+          }
+
+          .sessionType {
+            text-align: center;
+            font-size: 14px;
+            color: var(--app-gray-7);
+          }
+        }
+      }
+
+      .widgetWrapper {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+
+        .title {
+          font-family: Gilroy-Bold;
+          font-size: 18px;
+          line-height: 125%;
+        }
+
+        .widgetMainWrapper {
+          display: flex;
+          flex-direction: column;
+          max-width: 304px;
+          width: 100%;
+          border-radius: 8px;
+          background: var(--app-white-1);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+          padding: 17px 16px 13px 13px;
+
+          .title {
+            font-family: Gilroy-Bold;
+            font-size: 20px;
+            line-height: 125%;
+            margin-bottom: 11px;
+          }
+
+          .comingLabel {
+            color: var(--app-gray-8);
+            font-family: Gilroy-Medium;
+            font-size: 14px;
+            line-height: 125%;
+          }
+
+          .widgetRow {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 100%;
+            margin-top: 18px;
+
+            .widgetRound {
+              height: 42px;
+              width: 42px;
+              border-radius: 50%;
+              background-color: var(--app-gray-18);
+            }
+
+            .widgetSquar {
+              display: flex;
+              width: 224px;
+              height: 42px;
+              border-radius: 8px;
+              background-color: var(--app-gray-18);
+            }
+
+            .secondSquar {
+              width: 195px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .activityWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 509px;
+    width: 100%;
+    background-color: var(--app-white-1);
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+    padding: 19px 0 8px;
+    height: fit-content;
+
+    .realActivityAllState {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      max-height: 370px;
+      min-height: fit-content;
+      overflow-y: auto;
+      height: 100px;
+    }
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 24px;
+      line-height: 125%;
+      margin-left: 13px;
+      margin-bottom: 27px;
+    }
+
+    .activityRow {
+      display: flex;
+      align-items: center;
+      height: 62px;
+      padding: 0 13px;
+      cursor: pointer;
+      transition: .2s all ease-in-out;
+
+      .nameLabelWrapper {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+      }
+
+      &:hover {
+        background-color: var(--app-gray-3);
+
+        .avatarWrapper {
+          background-color: var(--app-white-1);
+        }
+      }
+
+      .avatarWrapper {
+        height: 34px;
+        width: 34px;
+        display: flex;
+        flex-shrink: 0;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--app-gray-3);
+        transition: .2s all ease-in-out;
+
+        .avatarLabel {
+          font-family: Gilroy-Bold;
+          font-size: 14px;
+        }
+      }
+
+      .name {
+        font-family: Gilroy-Bold;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .label {
+        font-family: Gilroy-Medium;
+        font-size: 14px;
+        line-height: 18px;
+        margin-left: 3px;
+      }
+
+      .date {
+        font-family: Gilroy-Medium;
+        font-size: 14px;
+        line-height: 18px;
+        color: var(--app-gray-8);
+        margin-left: 3px;
+      }
+
+      .moodImg {
+        display: flex;
+        width: 35px;
+        height: 35px;
+      }
+
+      .exerciseImg {
+        display: flex;
+        width: 35px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      img {
+        margin-left: auto;
+      }
+
+      .iconArrow {
+        font-size: 16px;
+        margin-left: auto;
+        color: var(--app-gray-8);
+        margin-right: 10px;
+      }
+    }
+  }
+
+}
+
+.wrapperWithUpgradeBanner{
+  padding-top: 106px;
+}
+
+.allActivityState {
+  max-width: 757px !important;
+  width: 100% !important;
+  max-height: calc(100svh - 169px);
+  overflow-y: auto;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.seeAll {
+  text-align: center;
+  font-family: Gilroy-Bold;
+  line-height: 125%;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.mobileName {
+  font-family: Gilroy-Bold;
+  font-size: 22px;
+}
+
+.banner {
+  width: 100%;
+  z-index: 9;
+  background-color: var(--app-white-1);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.badge {
+  border-radius: 4px;
+  height: 38px;
+
+  span {
+    font-size: 15px !important;
+  }
+
+  i {
+    font-size: 15px !important;
+  }
+}
+
+.bookingRow {
+  display: flex;
+  flex-direction: column;
+  padding: 13px 16px 12px 13px;
+  gap: 6px;
+  background-color: var(--app-white-1);
+  transition: .2s all ease-in-out;
+  cursor: pointer;
+
+  .topRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .date {
+      color: var(--app-gray-7);
+      font-family: Gilroy-Medium;
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    i {
+      font-size: 18px;
+      color: var(--app-gray-8);
+    }
+  }
+
+  .name {
+    font-family: Gilroy-Bold;
+    line-height: 19px;
+  }
+
+  &:hover {
+    background-color: var(--app-gray-3);
+  }
+}
+
+
+.badgeSpec {
+  cursor: default;
+}
+
+.mobInfoWrapper {
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+
+  .nameRow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  i {
+    margin-top: 0 !important;
+  }
+
+  .w22 {
+    width: 22px;
+  }
+}
+
+.mobTitleWrapper {
+  width: calc(100% + 50vw);
+  margin-left: -20px;
+}
+
+.mobileTitle {
+  font-family: Gilroy-Bold;
+  font-size: 20px;
+  padding: 20px 24px 8px;
+  right: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: white;
+}
+
+.mobiletitleAllActivity {
+  padding-top: 0 !important;
+}
+
+.allActivityWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+
+  .allActivityMain {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+    max-width: 757px;
+
+    .backIcon {
+      color: var(--app-black-1);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 26px;
+      line-height: 125%;
+    }
+  }
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+@media screen and (max-width: 1200px) {
+  .topBannerWrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mainBody {
+    flex-wrap: wrap;
+  }
+}
+
+.wrapperAllActivitis {
+  padding-bottom: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding-bottom: 60px !important;
+    transform: translateY(-20px) !important;
+    height: calc(100vh - 100px) !important;
+  }
+
+  .wrapperWithUpgradeBanner {
+    padding-top: 24px !important;
+  }
+
+  .wrapperAllActivitis {
+    transform: translateY(0) !important;
+  }
+
+  .allActivityWrapper {
+    padding-top: 30px !important;
+    width: calc(100vw - 50px);
+  }
+
+  .allActivityState {
+    max-height: calc(100svh - 185px) !important;
+  }
+
+  .allActivityMain {
+    max-width: 425px !important;
+    width: 100% !important;
+  }
+
+  .topBannerWrapper {
+    margin-top: 34px;
+  }
+
+  .banner {
+    max-width: 425px !important;
+  }
+
+  .activityWrapper {
+    max-width: 425px !important;
+  }
+
+  .navbarWrapper {
+    max-width: 425px !important;
+  }
+
+  .mainRightWrapper {
+    max-width: 425px !important;
+  }
+
+  .referWrapper {
+    max-width: 425px !important;
+  }
+
+  .widgetMainWrapper {
+    max-width: 425px !important;
+  }
+
+  .nameLabelWrapper {
+    flex-direction: column;
+    align-items: start !important;
+  }
+
+  .activityRow {
+    .label {
+      margin-left: 0 !important;
+    }
+
+    .date {
+      margin-top: 19px;
+      margin-left: 10px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 490px) {
+
+  .activityRow {
+    .label {
+      display: inline-block;
+      max-width: 180px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  .activityRow {
+    &:hover {
+      background-color: var(--app-white-1) !important;
+    }
+  }
+
+  .bookingRow {
+    &:hover {
+      background-color: var(--app-white-1) !important;
+    }
+  }
+
+  .line {
+    display: flex;
+    margin: 8px 0 0 -50%;
+    border-bottom: 1px solid var(--app-gray-3);
+    width: calc(100% + 50vw);
+  }
+}
