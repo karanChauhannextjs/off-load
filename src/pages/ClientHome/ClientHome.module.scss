@@ -1,0 +1,518 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .titlePage {
+    text-align: center;
+    font-family: Gilroy-Bold;
+    font-size: 28px;
+    line-height: 125%;
+  }
+
+  .topWrapper {
+    display: flex;
+    width: calc(100% - 310px);
+    justify-content: center;
+
+    .topMain {
+      display: flex;
+      position: relative;
+      width: 343px !important;
+      flex-direction: column;
+      padding-top: 30px;
+
+      .gold1 {
+        width: 11px;
+        height: 14px;
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 25px;
+      }
+
+      .gold2 {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+      }
+
+      .gold3 {
+        width: 65px;
+        height: 65px;
+        display: flex;
+        position: absolute;
+        right: -30px;
+        top: -12px;
+      }
+
+
+      .moodBlock {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 137px;
+        background-image: url("../../assets/svg/moodBack.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 38px;
+        gap: 13px;
+        align-items: center;
+
+        .feelingText {
+          text-align: center;
+          font-family: Gilroy-Medium;
+          font-size: 18px;
+          line-height: 125%;
+          margin-top: 20px;
+        }
+
+        .smilesWrapper {
+          display: flex;
+          align-items: center;
+
+          .smile {
+            cursor: pointer;
+            shape-rendering: crispEdges;
+          }
+        }
+      }
+
+      .offloadsCountWrapper {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 36px;
+        border-radius: 100px;
+        margin-top: 30px;
+        background-color: rgba(15, 206, 197, 0.30);
+
+        .countText {
+          text-align: center;
+          font-family: Gilroy-Bold;
+          font-size: 14px;
+
+          .lightCountText{
+            font-family: Gilroy-Medium;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .upcomingWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+
+        .upcomingLabel {
+          font-family: Gilroy-Bold;
+          font-size: 20px;
+          line-height: 130%;
+          letter-spacing: -0.2px;
+        }
+      }
+
+    }
+
+  }
+
+  .carePlanWrapper2 {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+    padding: 24px 0 26px 25px;
+    border: 1px solid var(--app-gray-1);
+    border-radius: 16px;
+    margin-top: 45px;
+
+    .carePlanTop {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 28px;
+      margin-bottom: 20px;
+
+      .planInfos {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        .heartIconWrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 41px;
+          height: 41px;
+          background-color: #FFE68F;
+          border-radius: 50%;
+
+          i {
+            font-size: 22px;
+            font-weight: 600;
+          }
+        }
+
+        .textsWrapper {
+          display: flex;
+          flex-direction: column;
+
+          .bold {
+            font-family: Gilroy-Bold;
+            font-size: 18px;
+            line-height: 20px;
+          }
+
+          .label {
+            font-family: Gilroy-Medium;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .seeAll {
+    height: 30px;
+    width: 66px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #F1F2F6;
+    font-family: Gilroy-Bold;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 33px;
+    position: relative;
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 26px;
+    }
+
+  }
+}
+
+.therapistBlockWrapper {
+  display: flex;
+  width: calc(100% - 310px);
+  min-width: 335px;
+  justify-content: center;
+  padding-bottom: 10px;
+  margin-top: 30px;
+
+  .therapistsMain {
+    display: flex;
+    width: 335px !important;
+    flex-direction: column;
+    border: 1px solid var(--app-gray-1);
+    border-radius: 16px;
+    align-items: center;
+    gap: 9px;
+    padding: 16px 0;
+    position: relative;
+
+    .avatarsWrapper {
+      display: flex;
+      padding-left: 20px;
+
+      .therapists{
+        display: flex;
+        height: 45px;
+      }
+    }
+
+    .therapistsInfoLabel {
+      display: flex;
+      max-width: 273px;
+      text-align: center;
+      font-family: Gilroy-Medium;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .therapistsInfoLabelBold {
+      display: flex;
+      max-width: 300px;
+      text-align: center;
+      font-family: Gilroy-Bold;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .therapistsActionWrapper {
+      display: flex;
+      position: relative;
+    }
+
+    .connectButton {
+      width: 262px;
+      box-shadow: none;
+    }
+
+    .appActionsWrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 13px;
+      margin-top: 4px;
+
+      .appButtons {
+        cursor: pointer;
+        width: 203px !important;
+        height: 60px !important;
+      }
+    }
+
+    .blackKross {
+      width: 16px;
+      height: 22px;
+      display: flex;
+      position: absolute;
+      fill: black !important;
+      right: -3px;
+      top: -7px;
+    }
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  width: min-content;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 25px;
+  z-index: 999;
+}
+
+.cardRow {
+  display: flex;
+  width: 100%;
+
+  .exerciseCardsWrapper {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .exerciseCardsWrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.disabled {
+  cursor: default;
+
+  i {
+    color: var(--app-gray-3);
+  }
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-top: 21px;
+
+  .block {
+    display: flex;
+    gap: 10px;
+
+    .avatar {
+      display: flex;
+      width: 37px;
+      height: 37px;
+      border-radius: 50%;
+      cursor: pointer;
+
+      img {
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .cardsBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
+
+.inPage {
+  padding-left: 20%;
+}
+
+.card {
+  width: 296px;
+}
+
+.activeDay {
+  background-color: var(--app-yellow-2) !important;
+}
+
+.seeAllWrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  .arrowsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .iconWrapper2 {
+      display: flex;
+      width: min-content;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.connectModalStep2 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+  .therapistBlockWrapper, .topWrapper {
+    width: calc(100% - 230px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .therapistBlockWrapper, .topWrapper {
+    width: calc(100% - 210px);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .therapistBlockWrapper, .topWrapper {
+    width: calc(100% - 190px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .therapistBlockWrapper, .topWrapper {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding-bottom: 70px;
+  }
+  .wrapper {
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .carePlanWrapper2 {
+    max-width: calc(100vw - 20px) !important;
+    //margin-left: 20px;
+    width: calc(100% + 20px) !important;
+    margin-top: 27px !important;
+    padding: 18px 0 18px 15px !important;
+    border-right: none !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    .carePlanTop {
+      padding-right: 20px !important;
+    }
+  }
+
+  .careBlockWrapper {
+    display: flex;
+    //padding-left: 15px;
+    align-self: center;
+  }
+
+  .title {
+    position: absolute;
+  }
+
+  .iconWrapper {
+    position: absolute;
+    top: 50px;
+  }
+
+  .topWrapper {
+    padding-left: 0 !important;
+    justify-content: center;
+  }
+
+  .therapistsMain {
+    margin-top: 35px !important;
+  }
+
+  .cardsWrapper {
+    margin-top: 60px;
+    padding-left: 0 !important;
+  }
+
+  .cardsWrapperMobile{
+    margin-top: 15px !important;
+  }
+
+  .therapistBlockWrapper {
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .offloadsCountWrapper {
+    margin-top: 21px !important;
+  }
+  .upcomingWrapper {
+    margin-top: 33px !important;
+  }
+
+  .card {
+    max-width: 296px;
+    width: 100%;
+    min-width: 285px;
+  }
+  .line {
+    width: calc(100% + 50vw);
+    display: flex;
+    border-bottom: 1px solid var(--app-gray-3);
+    margin-left: -50%;
+    margin-top: 35px;
+  }
+
+  .gold2 {
+    top: 0 !important;
+  }
+
+  .gold3 {
+    right: -15px !important;
+    top: 0 !important;
+  }
+}

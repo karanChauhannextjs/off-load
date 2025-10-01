@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.input {
+  font-size: 28px;
+  height: 100%;
+  width: 60px;
+  padding: 19px;
+  border-radius: 15px;
+  border: 1px solid var(--app-gray-9);
+  text-align: center;
+  outline: none;
+
+  &:focus {
+    border-color: var(--app-black-1);
+    caret-color: var(--app-black-1);
+  }
+}
+
+.error {
+  border: 1px solid var(--app-red);
+
+  &:focus {
+    border: 1px solid var(--app-red);
+  }
+}

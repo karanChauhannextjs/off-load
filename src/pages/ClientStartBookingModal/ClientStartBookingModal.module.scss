@@ -1,0 +1,126 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+
+  .imageWrapper{
+    display: flex;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+
+    img{
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .title{
+    font-family: Gilroy-Bold;
+    font-size: 22px;
+    margin: 6px 0 4px;
+  }
+
+  .row{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    gap: 10px;
+
+    .icon{
+      font-size: 20px;
+      color: var(--app-gray-14);
+    }
+    .label{
+      color: var(--app-gray-14);
+    }
+  }
+
+  .label2{
+    color: var(--app-gray-14);
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 19px 0;
+    margin-top: 15px;
+    gap: 14px;
+    border-top: 1px solid var(--app-gray-11);
+    border-bottom: 1px solid var(--app-gray-11);
+  }
+
+  .label3{
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .actions{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    margin-top: 19px;
+  }
+
+  .cancellationLabel{
+    margin-top: 15px;
+  }
+
+  .priceWrapper{
+    display: flex;
+    padding: 8px 0 12px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--app-gray-3);
+    border-bottom: 1px solid var(--app-gray-3);
+    margin-top: 15px;
+  }
+  .boldLabel{
+    font-family: Gilroy-Bold;
+  }
+
+}
+
+.line{
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--app-gray-11);
+  margin: 14px 0 20px;
+}
+
+.addBlock{
+  margin-top: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .addActions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.button{
+  height: 31px;
+  width: 97px;
+  color: var(--app-blue-4);
+}
+
+.link{
+  text-decoration: none;
+}
+
+.sendButton{
+  width: 147px;
+}
+
+@media screen and (max-width: 425px) {
+  .modifyModal{
+    display: flex;
+    justify-content: center;
+  }
+}

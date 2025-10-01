@@ -1,0 +1,166 @@
+.feedMain {
+  display: flex;
+  width: calc(100% - 310px);
+  justify-content: center;
+  //padding-left: 15%;
+
+  .feedWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 552px;
+    width: 100%;
+    position: relative;
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 26px;
+      line-height: 125%;
+      margin-bottom: 21px;
+    }
+
+    .subtitle{
+      font-family: Gilroy-Bold;
+      font-size: 20px;
+      line-height: 125%;
+    }
+
+    .subtitle2{
+      font-family: Gilroy-Bold;
+      font-size: 20px;
+      line-height: 125%;
+      margin-bottom: 14px;
+    }
+
+    .checkinsWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 33px;
+    }
+
+    .notLoginOverlay{
+      position: absolute;
+      display: flex;
+      width: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 99;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FFF);
+      align-items: center;
+      justify-content: center;
+
+      .infoWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 510px;
+
+        .bold{
+          font-family: Gilroy-Bold;
+          font-size: 28px;
+          line-height: 130%;
+          letter-spacing: -0.28px;
+        }
+
+        .label{
+          display: flex;
+          max-width: 317px;
+          font-family: Gilroy-Medium;
+          line-height: 125%;
+          margin-top: 7px;
+        }
+
+        .buttonSignup{
+          width: 330px;
+          margin-top: 31px;
+        }
+      }
+    }
+  }
+  .loadingWrapper{
+    height: 300px !important;
+    div{
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+}
+
+.entriesBlock{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.entrieText{
+  text-align: center;
+  margin: 24px 0;
+  padding: 0 20px;
+  font-family: Gilroy-Medium;
+  line-height: 125%;
+}
+
+.entriesWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.feedWrapperInChatWithoutData{
+  span{
+    font-size: 14px;
+    font-family: Gilroy-Medium;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .feedMain{
+    width: calc(100% - 230px);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .feedMain{
+    width: calc(100% - 210px);
+  }
+}
+@media screen and (max-width: 1100px) {
+  .feedMain{
+    width: calc(100% - 190px);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .feedMain{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 552px){
+  .feedMain{
+    width: 100vw !important;
+    padding-bottom: 50px;
+    padding-left: 0!important;
+  }
+  .title{
+    display: none;
+  }
+  .subtitle{
+    display: none;
+  }
+
+  .entriesWrapper{
+    padding: 0 20px;
+  }
+  .notLoginOverlay{
+    height: calc(100vh - 230px);
+  }
+
+  .infoWrapper{
+    margin-top: auto !important;
+  }
+
+  .feedWrapperInChatWithoutData{
+    padding-left: 20px;
+  }
+}

@@ -1,0 +1,85 @@
+.bannerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px 24px 8px 11px;
+  gap: 8px;
+  min-width: 335px;
+
+  .labelsBlock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .linkWrapper {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .firstLabel {
+      font-family: Gilroy-Bold;
+    }
+    .secondLabel {
+      margin-right: 6px;
+      font-family: Gilroy-Medium;
+      color: var(--app-black-1);
+      font-size: 14px;
+      text-decoration: underline;
+
+      .icon {
+        font-size: 16px;
+        position: absolute;
+        top: 1px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .actionsBlock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button{
+      height: 42px;
+      font-size: 14px;
+
+      i{
+        color: var(--app-black-1);
+      }
+    }
+  }
+}
+
+.primary {
+  background-color: var(--app-yellow-2);
+}
+.secondary {
+  background-color: var(--app-rose);
+}
+
+@media screen and (max-width: 800px) {
+  .firstLabel {
+    font-size: 12px;
+  }
+  .secondLabel {
+    font-size: 12px;
+  }
+  .bannerWrapper {
+    flex-direction: column;
+    gap: 8px;
+    align-items: start;
+  }
+}
+
+@media screen and (max-width: 425px) {
+ .bannerWrapper{
+   max-width: 335px;
+   width: 100%;
+ }
+}
+

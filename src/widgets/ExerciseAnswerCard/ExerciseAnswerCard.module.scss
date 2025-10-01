@@ -1,0 +1,135 @@
+.moodCardWrapper{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 14px;
+
+  .date{
+    color: rgba(0, 0, 0, 0.38);
+    font-family: Gilroy-Medium;
+    font-size: 14px;
+    line-height: 12px;
+  }
+
+  .mainCard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--app-gray-3);
+    padding-bottom: 15px;
+
+    .cardTopWrapper{
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 13px 12px 8px;
+
+      .figure{
+        display: flex;
+        width: 38px !important;
+        height: 38px;
+        border-radius: 50%;
+        box-shadow: 0 2.224px 2.224px rgba(0, 0, 0, 0.25);
+
+        img{
+          display: flex;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+        }
+      }
+
+      .titleWrapper{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .answersWrapper{
+      padding: 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .answerBlock{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+    }
+
+    .multiAnswerWrapper{
+      padding: 0 12px;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      margin-top: -22px;
+
+      .seeWrapper{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+
+        span{
+          font-family: Gilroy-Medium;
+          line-height: 23px;
+          margin-left: auto;
+        }
+        i{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+.title{
+  font-family: Gilroy-Bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.time{
+  color: #A1A2A6;
+  font-family: Gilroy-Bold;
+  font-size: 12px;
+}
+
+.label{
+  font-family: Gilroy-Medium;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.scoresWrapper{
+  .scoreLabel{
+    font-family: Gilroy-Bold;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .multiAnswerWrapper {
+    margin-top: 0 !important;
+    flex-direction: column-reverse !important;
+    padding: 0!important;
+
+    .seeWrapper{
+      justify-content: space-between;
+      border-top: 1px solid #DADBDD;
+      padding: 8px 12px 0 12px;
+
+      span{
+        margin-left: 0 !important;
+      }
+    }
+
+    .scoresWrapper{
+      padding-left: 12px;
+    }
+  }
+}
+
+.multiAnswerModal{
+  padding: 0 !important;
+}

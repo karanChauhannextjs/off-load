@@ -1,0 +1,61 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  max-width: 335px;
+  padding-top: 103px;
+  flex-direction: column;
+  gap: 53px;
+
+  .titleBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    .title{
+      font-family: Gilroy-Bold;
+      font-size: 28px;
+    }
+  }
+
+  .form{
+    position: relative;
+    min-width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    max-width: min-content;
+
+    .text{
+      font-size: 14px;
+      margin-top: 38px;
+    }
+
+    .button{
+      margin-top: 32px;
+    }
+  }
+
+  .label{
+    margin-top: 15px;
+    font-size: 14px;
+
+    span{
+      color: var(--app-blue-3);
+      cursor: pointer;
+    }
+  }
+}
+
+.boldText{
+  font-family: Gilroy-Bold;
+  cursor: pointer;
+}
+
+.error{
+  position: absolute;
+  top: 83px;
+  font-size: 14px;
+  color: var(--app-red);
+}

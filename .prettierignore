@@ -1,0 +1,37 @@
+# Ignore dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist
+build
+.next
+out
+.nuxt
+
+# Cache
+.cache
+.vite
+
+# Logs
+*.log
+
+# Coverage / test outputs
+coverage
+test-results
+.playwright
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS / misc
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore generated files
+*.min.js
+*.min.css

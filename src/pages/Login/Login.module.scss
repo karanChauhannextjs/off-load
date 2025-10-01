@@ -1,0 +1,83 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  max-width: 335px;
+  padding-top: 103px;
+  flex-direction: column;
+  gap: 33px;
+  position: relative;
+
+  .closeWrapper {
+    cursor: pointer;
+    position: absolute;
+    top: 60px;
+    right: 0;
+
+    .closeIcon {
+      display: flex;
+      font-size: 21px;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+  }
+
+  .titleBlock{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .title{
+      font-family: Gilroy-Bold;
+      font-size: 28px;
+    }
+  }
+
+  .form{
+    min-width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    max-width: min-content;
+
+    .forgot{
+      cursor: pointer;
+      color: var(--app-black-1);
+      font-size: 13px;
+      align-self: end;
+      margin-bottom: 48px;
+    }
+  }
+
+  .label{
+    margin-top: 15px;
+    font-size: 14px;
+
+    span{
+      color: var(--app-blue-3);
+      cursor: pointer;
+    }
+  }
+
+  .actionsWrapper{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -14px;
+
+    .action{
+      cursor: pointer;
+      line-height: 20px;
+      padding: 11px 21px;
+      border-radius: 100px;
+      background: var(--app-gray-3);
+    }
+  }
+}
+.error{
+  transform: translateY(5px);
+  align-self: start;
+  font-size: 14px;
+  color: var(--app-red);
+}

@@ -1,0 +1,34 @@
+.bannerWrapper {
+  margin-left: 77px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  //max-width: 1155px;
+  gap: 10px;
+  padding: 5px 6px 6px 26px;
+  border-radius: 10px;
+  background-color: var(--app-gray-3);
+  border: 1px solid #979797;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.upgradeLabel {
+  font-size: 18px;
+}
+
+.upgradeButton {
+  cursor: pointer;
+  display: flex;
+  padding: 14px 21px 14px 20px;
+  align-items: center;
+  gap: 7px;
+  border-radius: 10px;
+  border: 1px solid var(--app-black-1);
+  background: var(--app-yellow-1);
+
+  .upgradeIcon {
+    height: 16px !important;
+  }
+}

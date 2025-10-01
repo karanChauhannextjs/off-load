@@ -1,0 +1,46 @@
+
+.dot_flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--app-black-1);
+  color: var(--app-black-1);
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+.dot_flashing::before, .dot_flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot_flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--app-black-1);
+  color: var(--app-black-1);
+  animation: dot_flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot_flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--app-black-1);
+  color: var(--app-black-1);
+  animation: dot_flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot_flashing {
+  0% {
+    background-color: var(--app-black-1);
+  }
+  50%, 100% {
+    background-color: rgba(152, 128, 255, 0.2);
+  }
+}

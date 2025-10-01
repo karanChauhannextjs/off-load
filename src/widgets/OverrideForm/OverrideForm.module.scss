@@ -1,0 +1,16 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  .button{
+    max-width: 196px;
+    width: 100%;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

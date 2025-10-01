@@ -1,0 +1,134 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .card {
+    margin: 33px 0 25px;
+  }
+
+  .copyUrlBlock {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #D4D4D4;
+    padding-left: 16px;
+    position: relative;
+    height: 55px;
+
+    .exerciseUrl {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .shadowMask {
+      position: absolute;
+      top: 5px;
+      right: 111px;
+    }
+
+    .copyButton {
+      top: 3px;
+      right: 4px;
+      position: absolute;
+      margin-left: auto;
+      border-radius: 8px;
+      z-index: 9;
+      width: 111px;
+    }
+  }
+
+  .shareIconsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7px;
+
+    .shareBlock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+
+      .shareIconWrapper {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        cursor: pointer;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--app-gray-1);
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .bold {
+    font-family: Gilroy-Bold;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .label {
+    display: flex;
+    align-self: center;
+    max-width: 269px;
+    font-family: Gilroy-Medium;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 9px 0 8px;
+  }
+
+  .button {
+    font-family: Gilroy-Medium !important;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .about {
+    width: 150px;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    margin-top: 26px;
+    flex-direction: column;
+
+    .devider {
+      display: flex;
+      width: calc(100% + 40px);
+      height: 0;
+      border-top: 1px solid var(--app-black-1);
+      transform: translateX(-20px);
+    }
+
+    .footerLabels {
+      gap: 4px;
+      display: flex;
+      flex-direction: column;
+      margin: 23px 0 7px;
+
+      .bold {
+        font-family: Gilroy-Bold;
+      }
+
+      .light {
+        font-size: 14px;
+      }
+    }
+
+    .actionsWrapper {
+      display: flex;
+      gap: 15px;
+    }
+  }
+}

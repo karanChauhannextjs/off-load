@@ -1,0 +1,130 @@
+.sidebarMain {
+  display: flex;
+  height: calc(100vh - 40px);
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.sidebarWrapper {
+  display: flex;
+  min-width: 272px;
+  max-width: 272px;
+  width: 100%;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 80px;
+
+  .button {
+    width: 133px !important;
+  }
+
+  .row {
+    display: flex;
+    gap: 14px;
+    cursor: pointer;
+
+    .icon {
+      color: var(--app-gray-4);
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .label {
+      font-size: 20px;
+      color: var(--app-gray-4);
+      font-family: Gilroy-Bold;
+    }
+
+    &:hover {
+      .icon {
+        color: var(--app-black-1);
+      }
+
+      .label {
+        color: var(--app-black-1);
+      }
+    }
+  }
+}
+
+.burgerBottom {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+
+  .label {
+    font-family: Gilroy-Medium;
+    line-height: 125%;
+    text-decoration: none;
+    color: var(--app-black-1);
+  }
+
+  .feedbackWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    margin-top: 14px;
+  }
+
+  .privacyRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 24px 0;
+
+    .dot {
+      width: 3px;
+      height: 3px;
+      background-color: var(--app-gray-4);
+      border-radius: 50%;
+      cursor: default;
+    }
+  }
+
+  .lightLabel {
+    color: var(--app-gray-4);
+    font-size: 14px;
+    line-height: 125%;
+  }
+
+  span {
+    cursor: pointer;
+  }
+}
+
+.active {
+  span {
+    color: var(--app-black-1) !important;
+  }
+
+  i {
+    color: var(--app-black-1) !important;
+  }
+}
+
+.inbox {
+  font-size: 24px !important;
+}
+
+.greenDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--app-cyan-1);
+}
+
+@media screen and (max-width: 1439px) {
+  .sidebarWrapper {
+    max-width: 230px;
+    min-width: 180px;
+    width: 100%;
+  }
+}

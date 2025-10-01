@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  width: 335px;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 12px 14px 18px 12px;
+  border: 1px solid var(--app-gray-3);
+  position: relative;
+
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 6px;
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 18px;
+    }
+  }
+
+  .timeLabel {
+    font-size: 14px;
+    margin: 6px 0;
+    color: var(--app-gray-7);
+  }
+
+  .mainBlock {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 18px;
+
+    .row {
+      display: flex;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      gap: 7px;
+
+      .priceType {
+        position: absolute;
+        left: 48px;
+      }
+
+      .badgeWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+  }
+}
+.session {
+  border-left: 5px solid var(--app-blue-1);
+}
+.consultation {
+  border-left: 5px solid var(--app-green-1);
+}
+
+.label {
+  font-size: 14px;
+}
+
+.checkbox {
+  span {
+    font-family: Gilroy-Bold;
+    font-size: 14px;
+  }
+}
+
+.input {
+  width: 81px;
+
+  input {
+    height: 34px !important;
+    padding: 8px 8px 8px 17px !important;
+  }
+}
+
+.error {
+  font-size: 14px;
+  position: absolute;
+  color: var(--app-red);
+}
+.consultationError {
+  top: 50px;
+  left: 55px;
+}
+.min30TypeError {
+  top: 72px;
+  left: 142px;
+}
+.min30PriceError {
+  top: 83px;
+  left: 142px;
+}
+.min50TypeError {
+  top: 196px;
+  left: 142px;
+}
+.durationError {
+  text-align: end;
+  margin-right: 18px;
+  top: 46px;
+  left: 142px;
+}
+.min50PriceError {
+  top: 207px;
+  left: 142px;
+}
+.paymentError {
+  margin-right: 65px;
+  text-align: end;
+  top: 10px;
+  left: 80px;
+}
+.addressError {
+  top: 196px;
+  left: 142px;
+}

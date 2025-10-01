@@ -1,0 +1,171 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  margin-top: 63px;
+  margin-bottom: 30px;
+  gap: 25px;
+
+  .infoWrapper {
+    display: flex;
+    align-items: end;
+    gap: 17px;
+
+    .infoBlock{
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .name{
+        font-family: Gilroy-Bold;
+        font-size: 22px;
+      }
+    }
+
+    .shareWrapper{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: end;
+
+      .dotsIcon{
+        margin-top: 16px;
+        cursor: pointer;
+        position: relative;
+      }
+    }
+  }
+
+  .bioBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 345px;
+
+    .location{
+      font-size: 12px;
+      color: var(--app-gray-4);
+    }
+  }
+}
+
+.shortBio{
+  white-space: pre-wrap;
+  line-height: 21px;
+}
+
+.label{
+  font-size: 14px;
+}
+
+.badge {
+  border-radius: 4px;
+  height: 38px;
+
+  span {
+    font-size: 15px !important;
+  }
+
+  i {
+    font-size: 15px !important;
+    color: var(--app-black-1);
+  }
+}
+
+.messageBadge {
+  width: 98px;
+}
+
+.mediasWrapper{
+  display: flex;
+  gap: 6px;
+
+  .socialLink {
+    display: flex;
+    height: 30px;
+    text-decoration: none;
+  }
+
+}
+
+.mobInfoWrapper {
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+
+  .nameRow {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobileName{
+    font-family: Gilroy-Bold;
+    font-size: 22px;
+  }
+  i {
+    margin-top: 0 !important;
+  }
+  .w22 {
+    width: 22px;
+  }
+}
+
+.reportPopup {
+  display: flex;
+  position: absolute;
+  top: 17px;
+  left: -88px;
+  width: 106px;
+  height: 42px;
+  z-index: 99;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid var(--app-gray-5);
+  background-color: var(--app-white-1);
+  padding-left: 11px;
+  align-items: center;
+}
+
+.mobileShareWrapper{
+  top: 5px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 18px;
+  align-items: end;
+
+  .dotsIcon{
+    cursor: pointer;
+    margin-right: 5px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .wrapper{
+    margin-top: 40px;
+  }
+  .infoBlock{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .username{
+    align-self: center;
+  }
+
+  .label{
+    align-self: center;
+  }
+  .location{
+    align-self: center;
+  }
+}

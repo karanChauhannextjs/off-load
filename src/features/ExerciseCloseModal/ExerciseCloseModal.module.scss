@@ -1,0 +1,28 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+
+  .bold{
+    font-family: Gilroy-Bold;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .label{
+    display: flex;
+    align-self: center;
+    max-width: 269px;
+    font-family: Gilroy-Medium;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 9px 0 8px;
+  }
+
+  .button{
+    font-family: Gilroy-Bold !important;
+    margin-top: 15px;
+    border-radius: 8px;
+  }
+}

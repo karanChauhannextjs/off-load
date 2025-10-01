@@ -1,0 +1,570 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 335px;
+  position: relative;
+  padding-bottom: 56px;
+
+  .titleWrapper {
+    display: flex;
+  }
+
+  .title {
+    font-family: Gilroy-Bold;
+    font-size: 26px;
+    line-height: 125%;
+  }
+
+  .subtitle2 {
+    margin-top: 4px;
+    font-size: 18px;
+    line-height: 125%;
+  }
+
+  .signoutDesktopTitle {
+    font-family: Gilroy-Bold;
+    font-size: 32px !important;
+    margin-top: 44px;
+  }
+
+  .pointsWrapper {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 9px;
+    margin-bottom: 15px;
+
+    .pointWrapper {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      .yellowCircle {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: var(--app-yellow-1);
+
+        .icon {
+          font-size: 10px;
+        }
+      }
+
+      .pointText {
+        line-height: 26px;
+      }
+
+    }
+  }
+
+  .mainWithDat {
+    margin-top: 38px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 25px;
+
+    .groupsMain {
+      display: flex;
+      width: 100%;
+      max-width: calc(100% - 40px);
+      position: relative;
+      padding: 0 15px;
+
+      .groupArrowWrapper {
+        cursor: pointer;
+        display: flex;
+        height: 42px;
+        width: 42px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--app-white-1);
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.10);
+        flex-shrink: 0;
+        position: absolute;
+      }
+
+      .firstWrapper {
+        top: 0;
+        left: 0;
+      }
+
+      .secondWrapper {
+        top: 0;
+        right: 0;
+      }
+
+
+      .groupsWrapper {
+        width: 100%;
+        display: flex;
+        gap: 13px;
+        overflow-x: auto;
+        padding: 0 35px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        .groupWrapper {
+          display: flex;
+          align-items: center;
+          background-color: var(--app-gray-3);
+          padding: 11px 18px;
+          border-radius: 16px;
+          cursor: pointer;
+          flex-shrink: 0;
+
+          .groupName {
+            font-family: Gilroy-Bold;
+            line-height: 20px;
+          }
+
+          &:hover {
+            background-color: #E9EAED;
+          }
+        }
+
+        .active {
+          background-color: var(--app-black-1) !important;
+
+          .groupName {
+            color: var(--app-white-1) !important;
+          }
+        }
+      }
+
+      .groupsWrapper::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .mainBlock {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 21px;
+
+      .blockTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        //max-width: 1000px;
+        padding-right: 40px;
+
+        .seeAllWrapper {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+
+          .arrowsWrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+          }
+
+          .seeAll {
+            height: 30px;
+            width: 66px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100px;
+            background-color: #F1F2F6;
+            font-family: Gilroy-Bold;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+
+      .cardRow {
+        display: flex;
+        width: calc(100% + 40px);
+
+        .cardsWrapper {
+          display: flex;
+          width: 100%;
+          gap: 16px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          padding-right: 100px;
+        }
+
+        .cardsWrapper::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .feedbackBannerWrapper {
+    gap: 13px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    padding: 11px 27px 9px 14px;
+    justify-content: space-between;
+    background-color: var(--app-gray-3);
+
+    .leftBlock {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+  }
+
+  .bottomInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 52px;
+    max-width: 570px;
+
+    .infoLabel {
+      font-size: 14px;
+      line-height: 125%;
+    }
+  }
+
+  .mainWithUpgradeBanner {
+    margin-top: 0;
+  }
+
+}
+
+.pageWrapperWithUpgradeBanner {
+  padding-top: 63px;
+}
+
+.groupBackWrapper {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+
+  .groupBack {
+    display: flex;
+    font-size: 22px;
+    margin-right: 10px;
+    margin-top: 3px;
+    z-index: 999;
+  }
+
+  .groupBackMobile {
+    display: flex;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+
+  .groupNameTitle {
+    font-family: Gilroy-Bold;
+    font-size: 26px;
+    line-height: 125%;
+  }
+
+  .groupNameTitleMobile {
+    font-family: Gilroy-Bold;
+    font-size: 20px;
+    line-height: 125%;
+    margin: auto;
+    transform: translateX(-12px);
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  width: min-content;
+  align-items: center;
+  cursor: pointer;
+  //z-index: 999;
+}
+
+.iconWrapperSelected {
+  display: flex;
+  width: min-content;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.selectedWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+
+  .categoryNameWrapper {
+    margin: 24px 0 42px;
+  }
+
+  .selectedCardMain {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+.selectedCardMain::-webkit-scrollbar {
+  width: 0 !important;
+  display: none !important;
+}
+
+.subtitle {
+  font-family: Gilroy-Bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.disabled {
+  cursor: default !important;
+
+  i {
+    color: var(--app-gray-3);
+  }
+}
+
+.therapistBlockWrapper {
+  display: flex;
+  width: calc(100% - 310px);
+  justify-content: center;
+  //padding-left: 20%;
+  padding-bottom: 10px;
+
+  .therapistsMain {
+    display: flex;
+    width: 335px !important;
+    flex-direction: column;
+    border: 1px solid var(--app-gray-1);
+    border-radius: 16px;
+    align-items: center;
+    gap: 9px;
+    padding: 16px 0;
+
+    .avatarsWrapper {
+      display: flex;
+
+      .therapists {
+        display: flex;
+        height: 45px;
+      }
+    }
+
+    .therapistsInfoLabel {
+      display: flex;
+      max-width: 273px;
+      text-align: center;
+      font-family: Gilroy-Medium;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .therapistsInfoLabelBold {
+      display: flex;
+      max-width: 300px;
+      text-align: center;
+      font-family: Gilroy-Bold;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .connectButton {
+      width: 262px;
+      box-shadow: none;
+    }
+
+    .therapistsActionWrapper {
+      display: flex;
+      position: relative;
+    }
+
+    .blackKross {
+      width: 16px;
+      height: 22px;
+      display: flex;
+      position: absolute;
+      fill: black !important;
+      right: -3px;
+      top: -7px;
+    }
+
+    .appActionsWrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 13px;
+      margin-top: 4px;
+
+      .appButtons {
+        cursor: pointer;
+        width: 203px !important;
+        height: 60px !important;
+      }
+    }
+  }
+}
+
+.connectModalStep2 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+  .therapistBlockWrapper {
+    width: calc(100% - 230px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .therapistBlockWrapper {
+    width: calc(100% - 210px);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .therapistBlockWrapper {
+    width: calc(100% - 190px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .therapistBlockWrapper {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bottomInfoWrapper {
+    margin-top: 61px !important;
+    padding-bottom: 70px !important;
+    max-width: 326px !important;
+  }
+
+  .pageWrapperWithUpgradeBanner {
+    padding-top: 0 !important;
+  }
+
+  .pointsWrapper {
+    margin-top: 20px !important;
+  }
+
+  .main {
+    gap: 26px !important;
+    width: calc(100vw - 40px);
+
+    .mainBlock {
+      gap: 11px !important;
+    }
+  }
+
+  .feedbackBannerWrapper {
+    width: 100% !important;
+    padding-right: 23px !important;
+  }
+
+  .blockTop {
+    padding-right: 0 !important;
+  }
+
+  .groupsMain {
+    padding: 0 !important;
+  }
+
+  .groupsWrapper {
+    padding: 0 !important;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+  }
+
+  .mainWithUpgradeBanner {
+    margin-top: 25px !important;
+  }
+
+  .titleSelectedClient {
+    padding-left: 20px;
+  }
+
+  .therapistBlockWrapper {
+    padding-left: 0 !important;
+    justify-content: center;
+  }
+
+  .cardsWrapper {
+    gap: 12px !important;
+  }
+
+  .selectedWrapper {
+    margin-top: 26px;
+    min-width: 90vw;
+  }
+
+  .selectedTherapistCare {
+    min-width: 100% !important;
+  }
+
+  .selectedWrapperHome {
+    padding-left: 20px;
+  }
+
+  .selectedCardMain {
+    gap: 11px !important;
+    row-gap: 22px !important;
+    overflow-x: hidden !important;
+  }
+
+  .categoryNameWrapper {
+    margin-bottom: 20px !important;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .publicLayoutCare {
+    padding-left: 20px;
+  }
+
+  .title {
+    font-size: 20px !important;
+  }
+
+  .signoutMobileTitle {
+    font-size: 30px !important;
+    max-width: 300px !important;
+    margin-top: 30px;
+  }
+
+
+  .cardRow {
+    width: calc(100% + 10px) !important;
+  }
+  .line {
+    position: absolute;
+    width: calc(100vw - 1px);
+    display: flex;
+    border-bottom: 1px solid var(--app-gray-3);
+    top: 32px;
+    left: -20px;
+  }
+
+  .lineSignout {
+    left: 0 !important;
+  }
+}

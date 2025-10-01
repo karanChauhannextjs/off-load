@@ -1,0 +1,18 @@
+.pageWrapper{
+  display: flex;
+  width: 100%;
+  padding-top: 27px;
+}
+
+.connectModalStep2{
+  padding-right: 0!important;
+  padding-left: 0!important;
+  padding-top: 0!important;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .pageWrapper{
+    padding-top: 0;
+  }
+}
