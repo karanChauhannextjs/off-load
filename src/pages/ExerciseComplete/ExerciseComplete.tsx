@@ -1,41 +1,42 @@
-import cn from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import cn from "classnames";
+import { useEffect, useRef, useState } from "react";
 
-import { Avatar, Button } from '@shared/ui';
-import Red from '@assets/svg/redSosinski.svg';
-import RedStar from '@assets/svg/redStar.svg';
+import { Avatar, Button } from "@shared/ui";
+import Red from "@assets/svg/redSosinski.svg";
+import RedStar from "@assets/svg/redStar.svg";
 import {
   AddClientModal,
   ExerciseCard,
   ExerciseCloseModal,
   ExerciseShareModal,
-} from '@features/index.ts';
-import BlueGround from '@assets/svg/blueRound.svg';
-import BlackCross from '@assets/svg/blackCross.svg';
-import styles from './ExerciseComplete.module.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useExercises } from '@store/exercises.ts';
-import { USER_TYPES } from '@constants/user.ts';
-import { RoutesEnum, USER_PUBLIC_BASE_URL } from '@routes/Routes.types.ts';
-import CryptoJS from 'crypto-js';
+} from "@features/index.ts";
+import BlueGround from "@assets/svg/blueRound.svg";
+import BlackCross from "@assets/svg/blackCross.svg";
+import styles from "./ExerciseComplete.module.scss";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useExercises } from "@store/exercises.ts";
+import { USER_TYPES } from "@constants/user.ts";
+import { RoutesEnum, USER_PUBLIC_BASE_URL } from "@routes/Routes.types.ts";
+import CryptoJS from "crypto-js";
 import {
   currentBaseUrl,
   encodeDecodeSecretKey,
   getYouTubeEmbedUrl,
   isNumberIncluded,
-} from '@utils/helpers.ts';
+} from "@utils/helpers.ts";
 import {
   AppModal,
   useAppModalSimpleHandlers,
-} from '@shared/ui/AppModal/AppModal.tsx';
-import { LoadingScreen } from '@pages/index.ts';
-import { format } from 'date-fns';
-import ExerciseAnswerShareModal from '@features/ExerciseAnswerShareModal';
+} from "@shared/ui/AppModal/AppModal.tsx";
+import { LoadingScreen } from "@pages/index.ts";
+import { format } from "date-fns";
+import ExerciseAnswerShareModal from "@features/ExerciseAnswerShareModal";
+import { Helmet } from "react-helmet";
 
 const ExerciseComplete = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user') ?? '{}');
+  const user = JSON.parse(localStorage.getItem("user") ?? "{}");
   const modalHandlers = useAppModalSimpleHandlers();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const nextButtonRef = useRef<HTMLDivElement>(null);
@@ -47,16 +48,16 @@ const ExerciseComplete = () => {
   const [step, setStep] = useState(1);
   const [updated, setUpdated] = useState(false);
   const [isMobileScreen, setIsMobileScreen] = useState(
-    window.innerWidth <= 768,
+    window.innerWidth <= 768
   );
   const getExercise = useExercises((state) => state.getExercise);
   const getExerciseStatus = useExercises((state) => state.getExerciseStatus);
   const exercise = useExercises((state) => state.exercise);
   const createExerciseAnswer = useExercises(
-    (state) => state.createExerciseAnswer,
+    (state) => state.createExerciseAnswer
   );
   const createExerciseAnswerStatus = useExercises(
-    (state) => state.createExerciseAnswerStatus,
+    (state) => state.createExerciseAnswerStatus
   );
   const favoriteExercise = useExercises((state) => state.favoriteExercise);
   const unFavoriteExercise = useExercises((state) => state.unFavoriteExercise);
@@ -76,10 +77,10 @@ const ExerciseComplete = () => {
   const [shareShow, setShareShow] = useState<boolean>(false);
   const [answerShareShow, setAnswerShareShow] = useState<boolean>(false);
   let scrollTimeout: any;
-  const [navDirection, setNavDirection] = useState('right');
+  const [navDirection, setNavDirection] = useState("right");
   const shareUrl = `${currentBaseUrl}/exercise/${exercise?.uuid}`;
-  const title = 'Check out this therapy tool';
-  const description = '100s of science-backed therapy tools | Offload';
+  const title = "Check out this therapy tool";
+  const description = "100s of science-backed therapy tools | Offload";
 
   const handleScroll = () => {
     setIsScrolling(true);
@@ -100,7 +101,7 @@ const ExerciseComplete = () => {
           await unFavoriteExercise(uuid);
         }
       } catch (error) {
-        console.log('error', error);
+        console.log("error", error);
       }
     }
   };
@@ -115,20 +116,20 @@ const ExerciseComplete = () => {
           questionId: question?.id,
           answer: CryptoJS.AES.encrypt(
             filteredAnswers?.[idx],
-            encodeDecodeSecretKey,
+            encodeDecodeSecretKey
           ).toString(),
         };
-      },
+      }
     );
     const body = {
       answers: answersArray,
       multiQuestionAnswers: multiQuestionAnswers,
       exerciseUuid: exercise?.uuid,
-      ...(typeof therapistUuid === 'string' &&
+      ...(typeof therapistUuid === "string" &&
         user?.type === USER_TYPES?.CLIENT && { therapistUuid }),
     };
     try {
-      setNavDirection('right');
+      setNavDirection("right");
       if (
         step === orderedQuestions.length + 1 &&
         user?.type
@@ -156,12 +157,12 @@ const ExerciseComplete = () => {
         setStep(step + 1);
       }
     } catch (error) {
-      console.log('Err', error);
+      console.log("Err", error);
     }
   };
 
   const onBack = () => {
-    setNavDirection('left');
+    setNavDirection("left");
     setStep(step - 1);
   };
 
@@ -193,12 +194,12 @@ const ExerciseComplete = () => {
     } else {
       reset();
       const urlParams = new URLSearchParams(location.search);
-      const isFromInternal = urlParams.get('from') === 'internal';
+      const isFromInternal = urlParams.get("from") === "internal";
 
       if (isFromInternal) {
         navigate(-1);
       } else {
-        navigate('/');
+        navigate("/");
       }
     }
   };
@@ -212,12 +213,12 @@ const ExerciseComplete = () => {
   const onDone = () => {
     reset();
     const urlParams = new URLSearchParams(location.search);
-    const isFromInternal = urlParams.get('from') === 'internal';
+    const isFromInternal = urlParams.get("from") === "internal";
 
     if (isFromInternal) {
       navigate(-1);
     } else {
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -225,7 +226,7 @@ const ExerciseComplete = () => {
     if (!isReferencesOpened) {
       setTimeout(() => {
         if (stepOneScrollable.current) {
-          stepOneScrollable.current.scrollBy({ top: 300, behavior: 'smooth' });
+          stepOneScrollable.current.scrollBy({ top: 300, behavior: "smooth" });
         }
       }, 0);
     }
@@ -233,11 +234,11 @@ const ExerciseComplete = () => {
   };
 
   useEffect(() => {
-    getExercise(location?.pathname?.split('/')[2]);
+    getExercise(location?.pathname?.split("/")[2]);
   }, []);
 
   useEffect(() => {
-    if (exercise && getExerciseStatus === 'SUCCESS') {
+    if (exercise && getExerciseStatus === "SUCCESS") {
       if (exercise) {
         const array = [
           ...exercise?.questions,
@@ -274,7 +275,7 @@ const ExerciseComplete = () => {
   const handleAnswerClick = (
     questionId: number,
     answerId: number,
-    multiSelected: boolean,
+    multiSelected: boolean
   ) => {
     const isSelected = isAnswerSelected(questionId, answerId);
 
@@ -286,7 +287,7 @@ const ExerciseComplete = () => {
 
     setMultiQuestionAnswers((prevAnswers) => {
       const questionIndex = prevAnswers.findIndex(
-        (qa) => qa.questionId === questionId,
+        (qa) => qa.questionId === questionId
       );
       const questionAnswers =
         questionIndex !== -1 ? prevAnswers[questionIndex] : null;
@@ -301,7 +302,7 @@ const ExerciseComplete = () => {
               : questionAnswers.answerids.filter((id: any) => id !== answerId);
 
           return prevAnswers.map((qa, index) =>
-            index === questionIndex ? { ...qa, answerids: newAnswerIds } : qa,
+            index === questionIndex ? { ...qa, answerids: newAnswerIds } : qa
           );
         } else {
           return [...prevAnswers, { questionId, answerids: [answerId] }];
@@ -312,7 +313,7 @@ const ExerciseComplete = () => {
 
         if (questionAnswers) {
           return prevAnswers.map((qa, index) =>
-            index === questionIndex ? { ...qa, answerids: newAnswerIds } : qa,
+            index === questionIndex ? { ...qa, answerids: newAnswerIds } : qa
           );
         } else {
           return [...prevAnswers, { questionId, answerids: newAnswerIds }];
@@ -328,7 +329,7 @@ const ExerciseComplete = () => {
 
   const isAnswerSelected = (questionId: number, answerId: number) => {
     const questionAnswers = multiQuestionAnswers.find(
-      (qa) => qa.questionId === questionId,
+      (qa) => qa.questionId === questionId
     );
     return !!questionAnswers && questionAnswers.answerids.includes(answerId);
   };
@@ -337,12 +338,12 @@ const ExerciseComplete = () => {
     let totalSum = 0;
     multiQuestionAnswers.forEach((qa) => {
       const question = exercise.multiQuestions.find(
-        (q: any) => q.id === qa.questionId,
+        (q: any) => q.id === qa.questionId
       );
       if (question) {
         qa.answerids.forEach((answerId: any) => {
           const answer = question.multiAnswers.find(
-            (a: any) => a.id === answerId,
+            (a: any) => a.id === answerId
           );
           if (answer && answer.value) {
             totalSum += answer.value;
@@ -382,7 +383,7 @@ const ExerciseComplete = () => {
         try {
           await navigator.share(shareData);
         } catch (error: any) {
-          console.error('Error sharing:', error);
+          console.error("Error sharing:", error);
         }
       }
     }
@@ -397,20 +398,20 @@ const ExerciseComplete = () => {
       modalHandlers.show();
     } else {
       const shareData = {
-        title: '',
+        title: "",
         text: formatExerciseForSharing(
           orderedQuestions,
           answers,
           multiQuestionAnswers,
-          exercise?.name,
+          exercise?.name
         ),
-        url: '',
+        url: "",
       };
       if (navigator.share) {
         try {
           await navigator.share(shareData);
         } catch (error: any) {
-          console.error('Error sharing:', error);
+          console.error("Error sharing:", error);
         }
       }
     }
@@ -420,28 +421,28 @@ const ExerciseComplete = () => {
     const handleResize = () => {
       setIsMobileScreen(window.innerWidth <= 768);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
-    const element = document.getElementById('exerciseLayout');
+    const element = document.getElementById("exerciseLayout");
     if (isKeyboardOpen && isMobileScreen) {
       if (element) {
-        element.style.height = '60svh';
+        element.style.height = "60svh";
       }
     } else {
       if (element) {
-        element.style.height = '100svh';
+        element.style.height = "100svh";
       }
     }
     const timerId = setTimeout(() => {
       window.scrollTo({
         top: -document.documentElement.offsetHeight,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }, 100);
 
@@ -481,16 +482,16 @@ const ExerciseComplete = () => {
             questionId: question?.id,
             answer: CryptoJS.AES.encrypt(
               filteredAnswers?.[idx],
-              encodeDecodeSecretKey,
+              encodeDecodeSecretKey
             ).toString(),
           };
-        },
+        }
       );
       const body = {
         answers: answersArray,
         multiQuestionAnswers: multiQuestionAnswers,
         exerciseUuid: exercise?.uuid,
-        ...(typeof therapistUuid === 'string' &&
+        ...(typeof therapistUuid === "string" &&
           user?.type === USER_TYPES?.CLIENT && { therapistUuid }),
       };
       if (user?.type) {
@@ -500,7 +501,7 @@ const ExerciseComplete = () => {
         });
         setFindScore(findScore);
       } else if (!user?.type) {
-        localStorage.setItem('exerciseCompleteData', JSON.stringify(body));
+        localStorage.setItem("exerciseCompleteData", JSON.stringify(body));
         createExerciseAnswer(body);
         const findScore = exercise.scores.find((el: any) => {
           return calculateTotalSum() >= el.from && calculateTotalSum() <= el.to;
@@ -513,24 +514,24 @@ const ExerciseComplete = () => {
   const introLength = exercise?.intro?.length || 0;
 
   const autoplayConfig = isMobileScreen
-    ? '?autoplay=1&mute=1'
-    : '?autoplay=1&mute=0';
+    ? "?autoplay=1&mute=1"
+    : "?autoplay=1&mute=0";
 
   function isYouTubeShort(url: string) {
-    return url.includes('/shorts/') || url.includes('youtube.com/shorts');
+    return url.includes("/shorts/") || url.includes("youtube.com/shorts");
   }
 
   const formatExerciseForSharing = (
     orderedQuestions: any,
     answers: any,
     multiQuestionAnswers: any,
-    exerciseName: string,
+    exerciseName: string
   ) => {
-    let formattedText = `Entry from Offload:\n\n${exerciseName || '<Exercise Name>'}\n\n`;
+    let formattedText = `Entry from Offload:\n\n${exerciseName || "<Exercise Name>"}\n\n`;
 
     orderedQuestions.forEach((item: any, idx: number) => {
       const findedMultiAnswer = multiQuestionAnswers?.find(
-        (el: any) => el?.questionId === item?.id,
+        (el: any) => el?.questionId === item?.id
       );
 
       // Handle single question/answer
@@ -552,7 +553,7 @@ const ExerciseComplete = () => {
         if (findedMultiAnswer?.answerids?.length) {
           findedMultiAnswer.answerids.forEach((answerId: number) => {
             const findedAnswer = item.multiAnswers.find(
-              (el: any) => el?.id === answerId,
+              (el: any) => el?.id === answerId
             );
             if (findedAnswer?.title) {
               selectedAnswers.push(findedAnswer.title);
@@ -562,7 +563,7 @@ const ExerciseComplete = () => {
 
         // Always add the intro/question, show "No answer here" if no answers selected
         if (selectedAnswers.length > 0) {
-          formattedText += `${item.intro}\n${selectedAnswers.join('\n')}\n\n`;
+          formattedText += `${item.intro}\n${selectedAnswers.join("\n")}\n\n`;
         } else {
           formattedText += `${item.intro}\nNo answer here\n\n`;
         }
@@ -574,7 +575,10 @@ const ExerciseComplete = () => {
 
   return (
     <>
-      {exercise && getExerciseStatus === 'SUCCESS' && updated ? (
+      <Helmet>
+        <title>{`Offload | ${exercise?.name}`}</title>
+      </Helmet>
+      {exercise && getExerciseStatus === "SUCCESS" && updated ? (
         <div className={styles.pageWrapper}>
           {step > 1 &&
             !(isMobileScreen && step !== orderedQuestions.length + 2) && (
@@ -600,15 +604,15 @@ const ExerciseComplete = () => {
             >
               {!(step === 1 || (!exercise?.showIntro && step === 2)) && (
                 <span className={styles.iconWrapper} onClick={onBack}>
-                  <i className={cn('icon-left-arrow', styles.arrow)} />
+                  <i className={cn("icon-left-arrow", styles.arrow)} />
                 </span>
               )}
               <div className={styles.shareButtonWrapper} onClick={onShareClick}>
-                <i className={cn('icon-share', styles.share)} />
+                <i className={cn("icon-share", styles.share)} />
               </div>
               {step !== orderedQuestions.length + 2 && (
                 <span className={cn(styles.iconWrapper)} onClick={onClose}>
-                  <i className={cn('icon-plus', styles.plus)} />
+                  <i className={cn("icon-plus", styles.plus)} />
                 </span>
               )}
             </div>
@@ -616,11 +620,11 @@ const ExerciseComplete = () => {
               <div className={cn(styles.mainBody, styles.videoContainer)}>
                 {user.type == USER_TYPES.THERAPIST && !isMobileScreen && (
                   <div className={styles.addButtonWrapper} onClick={onAddClick}>
-                    <i className={cn('icon-plus', styles.plus)} />
+                    <i className={cn("icon-plus", styles.plus)} />
                   </div>
                 )}
                 <iframe
-                  className={`${styles.youtubeIframe} ${isYouTubeShort(exercise?.url) && !user?.type ? styles.shortsVideoSignout : ''} ${isYouTubeShort(exercise?.url) ? styles.shortsVideo : styles.regularVideo}`}
+                  className={`${styles.youtubeIframe} ${isYouTubeShort(exercise?.url) && !user?.type ? styles.shortsVideoSignout : ""} ${isYouTubeShort(exercise?.url) ? styles.shortsVideo : styles.regularVideo}`}
                   src={`${getYouTubeEmbedUrl(exercise.url)}${autoplayConfig}`}
                   title="YouTube video player"
                   frameBorder="0"
@@ -639,7 +643,7 @@ const ExerciseComplete = () => {
                     })}
                     onClick={onAddClick}
                   >
-                    <i className={cn('icon-plus', styles.plus)} />
+                    <i className={cn("icon-plus", styles.plus)} />
                   </div>
                 )}
                 {step === 1 && (
@@ -653,8 +657,10 @@ const ExerciseComplete = () => {
                       onScroll={handleScroll}
                       className={cn(styles.stepOneScrollable, {
                         [styles.scrollbarVisible]: isScrolling,
-                        [styles.stepOneScrollableReference]: isReferencesOpened && !user?.type,
-                        [styles.stepOneScrollableReferenceSignin]: isReferencesOpened && user?.type,
+                        [styles.stepOneScrollableReference]:
+                          isReferencesOpened && !user?.type,
+                        [styles.stepOneScrollableReferenceSignin]:
+                          isReferencesOpened && user?.type,
                         [styles.scrollableSignout]: !user?.type,
                       })}
                     >
@@ -669,9 +675,9 @@ const ExerciseComplete = () => {
                         {exercise?.name}
                       </span>
                       {((exercise?.reviewFirst &&
-                        exercise?.reviewFirst !== 'null') ||
+                        exercise?.reviewFirst !== "null") ||
                         (exercise?.reviewSecond &&
-                          exercise?.reviewSecond !== 'null')) && (
+                          exercise?.reviewSecond !== "null")) && (
                         <div className={styles.reviewWrapper}>
                           {exercise?.reviewerImage && (
                             <div className={styles.avatarWrapper}>
@@ -681,7 +687,7 @@ const ExerciseComplete = () => {
                               />
                               <div className={styles.checkWrapper}>
                                 <i
-                                  className={cn('icon-check', styles.checkIcon)}
+                                  className={cn("icon-check", styles.checkIcon)}
                                 />
                               </div>
                             </div>
@@ -690,11 +696,11 @@ const ExerciseComplete = () => {
                             <span className={styles.revLabel}>Reviewed by</span>
                             <div className={styles.reviewTexts}>
                               {exercise?.reviewFirst &&
-                                exercise?.reviewFirst !== 'null' && (
+                                exercise?.reviewFirst !== "null" && (
                                   <strong>{exercise?.reviewFirst} </strong>
                                 )}
                               {exercise?.reviewSecond &&
-                                exercise?.reviewSecond !== 'null' && (
+                                exercise?.reviewSecond !== "null" && (
                                   <span> {exercise?.reviewSecond}</span>
                                 )}
                             </div>
@@ -706,10 +712,10 @@ const ExerciseComplete = () => {
                           <span>
                             {exercise.formattedViewCount
                               ? exercise.formattedViewCount
-                              : 1}{' '}
+                              : 1}{" "}
                             views
                           </span>
-                          {exercise?.tag && exercise?.tag !== 'null' && (
+                          {exercise?.tag && exercise?.tag !== "null" && (
                             <div className={styles.row}>
                               <span className={styles.dot}></span>
                               <span>{exercise?.tag}</span>
@@ -735,7 +741,7 @@ const ExerciseComplete = () => {
                             References
                           </span>
                           <i
-                            className={cn('icon-down-arrow', styles.arrowIcon, {
+                            className={cn("icon-down-arrow", styles.arrowIcon, {
                               [styles.arrowUp]: isReferencesOpened,
                             })}
                           />
@@ -749,7 +755,7 @@ const ExerciseComplete = () => {
                       {introLength > 510 && (
                         <div className={cn(styles.actionWrapperShortIntro)}>
                           <Button
-                            label={'Next'}
+                            label={"Next"}
                             onClick={onStart}
                             className={styles.longButton}
                           />
@@ -767,7 +773,7 @@ const ExerciseComplete = () => {
                         })}
                       >
                         <Button
-                          label={'Next'}
+                          label={"Next"}
                           onClick={onStart}
                           className={styles.longButton}
                         />
@@ -784,8 +790,8 @@ const ExerciseComplete = () => {
                       className={cn(styles.questionsWrapper, {
                         [styles.questionsWrapperOpenedKeyboard]: isKeyboardOpen,
                         [styles.questionWrapperLoggedIn]: !!user?.uuid,
-                        [styles.slideEnterFromRight]: navDirection === 'right',
-                        [styles.slideEnterFromLeft]: navDirection === 'left',
+                        [styles.slideEnterFromRight]: navDirection === "right",
+                        [styles.slideEnterFromLeft]: navDirection === "left",
                       })}
                     >
                       <span className={styles.question}>
@@ -795,11 +801,11 @@ const ExerciseComplete = () => {
                         {orderedQuestions[step - 2]?.answer}
                       </span>
                       <textarea
-                        id={'textarea'}
+                        id={"textarea"}
                         ref={textareaRef}
                         className={cn(styles.textArea)}
-                        placeholder={'Start writing...'}
-                        value={answers[step - 2] || ''}
+                        placeholder={"Start writing..."}
+                        value={answers[step - 2] || ""}
                         maxLength={500}
                         autoFocus={true}
                         // style={{
@@ -825,10 +831,10 @@ const ExerciseComplete = () => {
                         })}
                       >
                         <Button
-                          label={'Next'}
+                          label={"Next"}
                           onClick={onStart}
                           className={styles.nextButton}
-                          isLoading={createExerciseAnswerStatus === 'LOADING'}
+                          isLoading={createExerciseAnswerStatus === "LOADING"}
                         />
                       </div>
                     </div>
@@ -838,10 +844,10 @@ const ExerciseComplete = () => {
                   orderedQuestions[step - 2].multiAnswers && (
                     <div
                       key={`${step}-${navDirection}`}
-                      style={{ display: 'flex', width: '100%' }}
+                      style={{ display: "flex", width: "100%" }}
                       className={cn({
-                        [styles.slideEnterFromRight]: navDirection === 'right',
-                        [styles.slideEnterFromLeft]: navDirection === 'left',
+                        [styles.slideEnterFromRight]: navDirection === "right",
+                        [styles.slideEnterFromLeft]: navDirection === "left",
                       })}
                     >
                       <div
@@ -851,7 +857,7 @@ const ExerciseComplete = () => {
                           styles.multiQuestionWrapper,
                           {
                             [styles.questionWrapperLoggedIn]: !!user?.uuid,
-                          },
+                          }
                         )}
                       >
                         <span ref={questionTitle} className={styles.answer}>
@@ -876,7 +882,7 @@ const ExerciseComplete = () => {
                                 className={cn(styles.multiAnswerRow, {
                                   [styles.selectedRow]: isAnswerSelected(
                                     orderedQuestions[step - 2].id,
-                                    answer.id,
+                                    answer.id
                                   ),
                                 })}
                                 key={answer.id}
@@ -884,7 +890,7 @@ const ExerciseComplete = () => {
                                   handleAnswerClick(
                                     orderedQuestions[step - 2].id,
                                     answer.id,
-                                    orderedQuestions[step - 2].multiSelected,
+                                    orderedQuestions[step - 2].multiSelected
                                   )
                                 }
                               >
@@ -894,18 +900,18 @@ const ExerciseComplete = () => {
                                 <div className={styles.checkWrapper}>
                                   {isAnswerSelected(
                                     orderedQuestions[step - 2].id,
-                                    answer.id,
+                                    answer.id
                                   ) && (
                                     <i
                                       className={cn(
-                                        'icon-check',
-                                        styles.checkIcon,
+                                        "icon-check",
+                                        styles.checkIcon
                                       )}
                                     />
                                   )}
                                 </div>
                               </div>
-                            ),
+                            )
                           )}
                         </div>
                         {!(
@@ -920,11 +926,11 @@ const ExerciseComplete = () => {
                             })}
                           >
                             <Button
-                              label={'Next'}
+                              label={"Next"}
                               onClick={onStart}
                               className={styles.nextButton}
                               isLoading={
-                                createExerciseAnswerStatus === 'LOADING'
+                                createExerciseAnswerStatus === "LOADING"
                               }
                             />
                           </div>
@@ -940,8 +946,8 @@ const ExerciseComplete = () => {
                       key={step}
                       className={cn(styles.imageQuestionWrapper, {
                         [styles.imageQuestionWrapperLoggedIn]: !!user?.uuid,
-                        [styles.slideEnterFromRight]: navDirection === 'right',
-                        [styles.slideEnterFromLeft]: navDirection === 'left',
+                        [styles.slideEnterFromRight]: navDirection === "right",
+                        [styles.slideEnterFromLeft]: navDirection === "left",
                       })}
                     >
                       {!!orderedQuestions[step - 2].image && (
@@ -962,10 +968,10 @@ const ExerciseComplete = () => {
                       </div>
                       <div className={cn(styles.stepsButtonWrapper)}>
                         <Button
-                          label={'Next'}
+                          label={"Next"}
                           onClick={onStart}
                           className={styles.nextButton}
-                          isLoading={createExerciseAnswerStatus === 'LOADING'}
+                          isLoading={createExerciseAnswerStatus === "LOADING"}
                         />
                       </div>
                     </div>
@@ -991,7 +997,7 @@ const ExerciseComplete = () => {
                         <div className={styles.scoredWrapper}>
                           <span className={styles.boldText}>
                             Scored {calculateTotalSum()}/
-                            {exercise.scores[exercise.scores.length - 1]?.to}:{' '}
+                            {exercise.scores[exercise.scores.length - 1]?.to}:{" "}
                             {findScore?.header}
                           </span>
                           <span className={styles.label}>
@@ -1028,25 +1034,25 @@ const ExerciseComplete = () => {
                                     </span>
                                   )}
                                   <span className={styles.time}>
-                                    {format(new Date(Date.now()), 'h:mm a')}
+                                    {format(new Date(Date.now()), "h:mm a")}
                                   </span>
                                 </div>
                               </div>
                               <Button
-                                variant={'tertiary'}
+                                variant={"tertiary"}
                                 className={cn(styles.shareButton)}
-                                icon={'share'}
-                                label={'Share'}
+                                icon={"share"}
+                                label={"Share"}
                                 onClick={onAnswerShareClick}
                               />
                             </div>
                             <div className={styles.answersWrapper}>
                               {/*.filter((e) => !e?.text && !e.image)*/}
-                              {orderedQuestions
-                                .map((item: any, idx: number) => {
+                              {orderedQuestions.map(
+                                (item: any, idx: number) => {
                                   const findedMultiAnswer =
                                     multiQuestionAnswers?.find(
-                                      (el: any) => el?.questionId === item?.id,
+                                      (el: any) => el?.questionId === item?.id
                                     );
                                   return (
                                     <div key={item?.id}>
@@ -1066,7 +1072,7 @@ const ExerciseComplete = () => {
                                               dangerouslySetInnerHTML={{
                                                 __html: answers?.[idx]?.replace(
                                                   /\n/g,
-                                                  '<br/>',
+                                                  "<br/>"
                                                 ),
                                               }}
                                             ></div>
@@ -1090,7 +1096,7 @@ const ExerciseComplete = () => {
                                                 const findedAnswer =
                                                   item?.multiAnswers?.find(
                                                     (el: any) =>
-                                                      el?.id === answerId,
+                                                      el?.id === answerId
                                                   );
                                                 return (
                                                   <span
@@ -1099,7 +1105,7 @@ const ExerciseComplete = () => {
                                                     {findedAnswer?.title}
                                                   </span>
                                                 );
-                                              },
+                                              }
                                             )}
                                             {!findedMultiAnswer?.answerids
                                               ?.length && (
@@ -1112,7 +1118,8 @@ const ExerciseComplete = () => {
                                       )}
                                     </div>
                                   );
-                                })}
+                                }
+                              )}
                             </div>
                           </div>
                         )}
@@ -1120,7 +1127,7 @@ const ExerciseComplete = () => {
                     <div className={styles.lastStepActionWrapper}>
                       <Button
                         className={cn(styles.longButton, styles.doneButton)}
-                        label={'Done'}
+                        label={"Done"}
                         onClick={onDone}
                       />
                     </div>
@@ -1188,7 +1195,7 @@ const ExerciseComplete = () => {
                   orderedQuestions,
                   answers,
                   multiQuestionAnswers,
-                  exercise?.name,
+                  exercise?.name
                 )}
               />
             </AppModal>
