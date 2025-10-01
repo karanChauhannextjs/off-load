@@ -1,0 +1,163 @@
+.mainWrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+
+  .pageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding-right: 190px;
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 26px;
+    }
+
+    .main {
+      gap: 50px;
+      display: flex;
+      padding-bottom: 40px;
+
+      .leftSide {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        min-width: min-content;
+
+        .tabsWrapper {
+          height: 36px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          width: 100%;
+          margin-bottom: -12px;
+        }
+
+        .label {
+          display: flex;
+          max-width: 345px;
+          width: 100%;
+          font-size: 14px;
+        }
+
+        .calendarBlock {
+          display: flex;
+          flex-direction: column;
+          gap: 26px;
+
+          .button {
+            max-width: 186px;
+            width: 100%;
+          }
+        }
+      }
+
+      .rightSide {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .timezonesLabels {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .timezonesLabelsMobile {
+    display: none;
+    flex-direction: column;
+  }
+
+  .timezoneLabels {
+    font-family: Gilroy-Medium;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .select {
+    height: 40px;
+    width: 80px;
+  }
+
+  .selectTimezone {
+    max-width: 335px;
+    width: 100%;
+  }
+
+  .loadWrapper {
+    & > div {
+      height: 400px;
+    }
+  }
+}
+
+.mainWrapperWithUpgradeBanner {
+  padding-top: 18px;
+}
+
+@media screen and (max-width: 1270px) {
+
+  .main {
+    flex-direction: column;
+    gap: 30px !important;
+  }
+  .pageWrapper {
+    padding-left: 20%;
+    gap: 18px;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding-left: 0;
+  }
+
+  .main {
+    margin-top: -20px !important;
+  }
+
+  .mainWrapper {
+    margin-top: 0;
+    justify-items: center;
+    padding-bottom: 50px;
+  }
+
+  .mainWrapperWithUpgradeBanner {
+    padding-top: 0 !important;
+  }
+
+  .timezonesLabels {
+    display: none !important;
+  }
+
+  .timezonesLabelsMobile {
+    display: flex !important;
+  }
+
+  .leftSide {
+    margin-top: -14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    font-size: 20px !important;
+  }
+
+  .pageWrapper {
+    width: calc(100vw - 40px) !important;
+  }
+  .line {
+    width: calc(100% + 50vw);
+    display: flex;
+    border-bottom: 1px solid var(--app-gray-3);
+    margin-left: -50%;
+    margin-top: -22px;
+  }
+}

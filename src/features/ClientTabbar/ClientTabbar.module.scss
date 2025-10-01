@@ -1,0 +1,60 @@
+.tabBarWrapper {
+  display: flex;
+  max-width: 500px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+
+  .row {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    align-items: center;
+
+    .icon {
+      color: var(--app-gray-4);
+      font-size: 22px;
+    }
+
+    .label {
+      font-size: 11px;
+      color: var(--app-gray-4);
+    }
+
+    &:hover {
+      .icon {
+        color: var(--app-black-1);
+      }
+
+      .label {
+        color: var(--app-black-1);
+      }
+    }
+  }
+}
+
+.heart{
+  font-size: 25px !important;
+}
+
+.greenDot {
+  position: absolute;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--app-cyan-1);
+}
+
+.active {
+  span {
+    color: var(--app-black-1) !important;
+  }
+
+  i {
+    color: var(--app-black-1) !important;
+  }
+}

@@ -1,0 +1,176 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding-left: 20%;
+  margin-top: 24px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 335px;
+    width: 100%;
+    gap: 27px;
+
+    .titleWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        font-family: Gilroy-Bold;
+        font-size: 26px;
+      }
+    }
+
+    .block {
+      position: relative;
+      display: flex;
+      max-width: 335px;
+      width: 100%;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--app-gray-11);
+
+      .stripeWrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .stripeButton {
+          padding: 4px 6px;
+          border-radius: 5px;
+          border: 1px solid var(--app-gray-1);
+        }
+
+        .stripe {
+          font-family: Gilroy-Bold;
+          color: var(--app-blue-2);
+        }
+      }
+    }
+
+    .row2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .notifyBlock {
+      gap: 17px !important;
+    }
+  }
+}
+
+.wrapperWithUpgradeBanner{
+  padding-top: 33px !important;
+}
+
+.button {
+  height: 32px;
+  z-index: 99;
+}
+
+.label {
+  font-family: Gilroy-Bold;
+  font-size: 14px;
+}
+
+.label2 {
+  font-size: 14px;
+}
+
+.label3 {
+  font-size: 13px;
+  color: var(--app-gray-16);
+}
+
+.label4 {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.connectButton {
+  font-size: 14px;
+  height: 30px;
+  width: 86px;
+  box-shadow: none;
+}
+
+.viewStripeButton {
+  width: 118px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Gilroy-Medium;
+  font-size: 14px;
+  line-height: 125%;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.usernameInput {
+  input {
+    padding-left: 112px !important;
+  }
+}
+
+.placeholder {
+  font-size: 14px;
+  color: var(--app-gray-16);
+  position: absolute;
+  top: 39px;
+  left: 11px;
+  z-index: 1;
+}
+
+.dots {
+  position: absolute;
+  top: 38px;
+  left: 308px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding-left: 0 !important;
+    margin-top: 0;
+    padding-bottom: 100px;
+  }
+
+  .wrapperWithUpgradeBanner{
+    padding-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    font-size: 20px !important;
+  }
+
+  .button {
+    margin-right: 26px;
+  }
+
+  .line {
+    width: calc(100% + 50vw);
+    display: flex;
+    border-bottom: 1px solid var(--app-gray-3);
+    margin-left: -50%;
+    margin-top: -23px;
+  }
+}

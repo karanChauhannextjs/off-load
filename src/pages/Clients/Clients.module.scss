@@ -1,0 +1,19 @@
+.pageWrapper {
+  display: flex;
+  width: 100%;
+  padding-top: 27px;
+}
+
+.pageWrapperWithUpgradeBanner {
+  padding-top: 49px;
+}
+
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding-top: 0;
+  }
+
+  .pageWrapperWithUpgradeBanner {
+    padding-top: 0 !important;
+  }
+}

@@ -1,0 +1,72 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.base {
+  width: 100%;
+  height: 220px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 18px 18px 16px;
+  font-size: 14px;
+  font-family: Gilroy-Medium;
+  background-color: var(--app-gray-3);
+
+  &::placeholder {
+    color: rgba(51, 51, 51, 0.5) !important;
+  }
+}
+
+.secondary{
+  background-color: var(--app-white-1);
+  border: 1px solid var(--app-gray-9);
+  padding: 14px 18px 9px 16px;
+
+  &::placeholder {
+    color: rgba(51, 51, 51, 0.70);
+  }
+}
+
+.resize {
+  resize: none;
+}
+
+.error {
+  transition: .1s all ease-in-out ;
+
+  &:hover{
+    .base{
+      border-color: var(--app-red);
+    }
+  }
+  & > .base{
+    border-color: var(--app-red);
+
+    &:hover{
+      border-color: var(--app-red);
+      caret-color: var(--app-red);
+    }
+    &:focus{
+      border-color: var(--app-red);
+      caret-color: var(--app-red);
+    }
+  }
+
+  & > .base {
+    border-color: var(--app-red);
+  }
+}
+
+.errorMessage {
+  font-size: 14px;
+  color: var(--app-red);
+  width: 100%;
+  text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

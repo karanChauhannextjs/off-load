@@ -1,0 +1,67 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  position: relative;
+  height: 50px;
+  min-width: 390px;
+
+  .bodyWrapper{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+    min-width: 378px;
+    max-width: 378px;
+  }
+
+  .icon{
+    cursor: pointer;
+  }
+}
+
+.disabledArrow{
+  cursor: default !important;
+  color: var(--app-gray-3);
+}
+
+.isActive{
+  background-color: var(--app-yellow-1) !important;
+  cursor: pointer !important;
+}
+
+.isAvailability{
+  background-color: var(--app-yellow-2);
+  cursor: pointer !important;
+}
+
+.isActiveSecond{
+  background-color: transparent !important;
+  border: 1px solid var(--app-black-1)!important;
+}
+
+@media screen  and (max-width: 425px){
+  .wrapper{
+    min-width: 315px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  .wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .iconWrapper{
+    display: none;
+  }
+
+  .icon{
+    display: none;
+  }
+
+  .bodyWrapper{
+    overflow-x: scroll;
+    scrollbar-width: none;
+    min-width: min-content !important;
+  }
+}

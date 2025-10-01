@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .title {
+      font-family: Gilroy-Bold;
+      font-size: 22px;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .input {
+      input {
+        &::placeholder {
+          color: rgba(51, 51, 51, 0.70);
+        }
+      }
+    }
+
+    .textarea {
+      textarea {
+        height: 111px;
+      }
+    }
+
+    .label {
+      font-size: 12px;
+      align-self: end;
+      color: var(--app-gray-15);
+      margin-bottom: 20px;
+    }
+  }
+}
